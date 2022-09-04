@@ -119,11 +119,11 @@
 		2CB0231E28C4E8A100686BAF /* MoMovie */ = {
 			isa = PBXGroup;
 			children = (
+				2CB0231F28C4E8A100686BAF /* AppDelegate.swift */,
+				2CB0232128C4E8A100686BAF /* SceneDelegate.swift */,
 				2C6DEC8E28C5004100142B15 /* Launch */,
 				2C6DEC8D28C5000100142B15 /* Home */,
 				2C6DEC9128C50D3C00142B15 /* Extensions */,
-				2CB0231F28C4E8A100686BAF /* AppDelegate.swift */,
-				2CB0232128C4E8A100686BAF /* SceneDelegate.swift */,
 				2CB0232328C4E8A100686BAF /* ViewController.swift */,
 				2CB0232528C4E8A100686BAF /* Main.storyboard */,
 				2CB0232B28C4E8A800686BAF /* Assets.xcassets */,
