@@ -16,12 +16,10 @@ extension UINavigationBar {
         
         var tintColor: UIColor {
             switch self {
-            case .blue:
-                 return nil
-            case .orange:
-                return nil
+            case .blue, .orange:
+                return .dynamicColor(light: Colors.sand, dark: Colors.warmSand)
             case .white:
-                return nil
+                return .dynamicColor(light: Colors.grey, dark: Colors.warmSand)
             }
         }
     }
@@ -31,8 +29,30 @@ extension UINavigationBar {
         let largeTitleFontSize = 34.0
         
         let titleAttributes = [
-            NSAttributedString.Key.foregroundColor: style.tintColor
-        
+            NSAttributedString.Key.foregroundColor: style.tintColor,
+            NSAttributedString.Key.font: UIFont(
+            name: "HelveticaNeue", size: defaultTitleFontSize
+            )!
         ]
+        
+        let largeTitleAttributes = [
+            NSAttributedString.Key.foregroundColor: style.tintColor,
+            NSAttributedString.Key.font: UIFont(
+            name: "HelveticaNeue", size: largeTitleFontSize
+            )!
+        ]
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = style.backgroundColor
+        appearance.titleTextAttributes = titleAttributes
+        appearance.largeTitleTextAttributes = largeTitleAttributes
+        appearance.buttonAppearance.normal.titleTextAttributes = [
+            NSAttributedString.Key.font: UIFontMetrics(forTextStyle: .body).scaledFont(for: UIFont(name: "HelveticaNeue", size: 16)!)
+        ]
+        appearance.shadowColor = .clear
+        standardAppearance = appearance
+        compactAppearance = appearance
+        scrollEdgeAppearance = appearance
+        tintColor = style.tintColor
     }
 }
