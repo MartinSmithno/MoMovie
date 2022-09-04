@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C6DEC9028C5007600142B15 /* AppLaunchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6DEC8F28C5007600142B15 /* AppLaunchVC.swift */; };
+		2C6DEC9328C50D6300142B15 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6DEC9228C50D6300142B15 /* UIColorExtensions.swift */; };
+		2C6DEC9528C5116500142B15 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6DEC9428C5116500142B15 /* Colors.swift */; };
+		2C6DEC9728C5158C00142B15 /* LayoutExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6DEC9628C5158C00142B15 /* LayoutExtensions.swift */; };
 		2CB0232028C4E8A100686BAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB0231F28C4E8A100686BAF /* AppDelegate.swift */; };
 		2CB0232228C4E8A100686BAF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB0232128C4E8A100686BAF /* SceneDelegate.swift */; };
 		2CB0232428C4E8A100686BAF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB0232328C4E8A100686BAF /* ViewController.swift */; };
@@ -17,6 +21,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C6DEC8F28C5007600142B15 /* AppLaunchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLaunchVC.swift; sourceTree = "<group>"; };
+		2C6DEC9228C50D6300142B15 /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
+		2C6DEC9428C5116500142B15 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		2C6DEC9628C5158C00142B15 /* LayoutExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutExtensions.swift; sourceTree = "<group>"; };
 		2CB0231C28C4E8A100686BAF /* MoMovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoMovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CB0231F28C4E8A100686BAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CB0232128C4E8A100686BAF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +47,56 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C6DEC8A28C4FFD100142B15 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		2C6DEC8B28C4FFE200142B15 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2C6DEC8C28C4FFF300142B15 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2C6DEC8D28C5000100142B15 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				2C6DEC8C28C4FFF300142B15 /* Model */,
+				2C6DEC8B28C4FFE200142B15 /* View */,
+				2C6DEC8A28C4FFD100142B15 /* Presenter */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		2C6DEC8E28C5004100142B15 /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				2CB0232D28C4E8A800686BAF /* LaunchScreen.storyboard */,
+				2C6DEC8F28C5007600142B15 /* AppLaunchVC.swift */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
+		2C6DEC9128C50D3C00142B15 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2C6DEC9228C50D6300142B15 /* UIColorExtensions.swift */,
+				2C6DEC9428C5116500142B15 /* Colors.swift */,
+				2C6DEC9628C5158C00142B15 /* LayoutExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		2CB0231328C4E8A100686BAF = {
 			isa = PBXGroup;
 			children = (
@@ -58,12 +116,14 @@
 		2CB0231E28C4E8A100686BAF /* MoMovie */ = {
 			isa = PBXGroup;
 			children = (
+				2C6DEC8E28C5004100142B15 /* Launch */,
+				2C6DEC8D28C5000100142B15 /* Home */,
+				2C6DEC9128C50D3C00142B15 /* Extensions */,
 				2CB0231F28C4E8A100686BAF /* AppDelegate.swift */,
 				2CB0232128C4E8A100686BAF /* SceneDelegate.swift */,
 				2CB0232328C4E8A100686BAF /* ViewController.swift */,
 				2CB0232528C4E8A100686BAF /* Main.storyboard */,
 				2CB0232B28C4E8A800686BAF /* Assets.xcassets */,
-				2CB0232D28C4E8A800686BAF /* LaunchScreen.storyboard */,
 				2CB0233028C4E8A800686BAF /* Info.plist */,
 				2CB0232828C4E8A100686BAF /* MoMovie.xcdatamodeld */,
 			);
@@ -143,8 +203,12 @@
 			files = (
 				2CB0232A28C4E8A100686BAF /* MoMovie.xcdatamodeld in Sources */,
 				2CB0232428C4E8A100686BAF /* ViewController.swift in Sources */,
+				2C6DEC9028C5007600142B15 /* AppLaunchVC.swift in Sources */,
+				2C6DEC9528C5116500142B15 /* Colors.swift in Sources */,
+				2C6DEC9328C50D6300142B15 /* UIColorExtensions.swift in Sources */,
 				2CB0232028C4E8A100686BAF /* AppDelegate.swift in Sources */,
 				2CB0232228C4E8A100686BAF /* SceneDelegate.swift in Sources */,
+				2C6DEC9728C5158C00142B15 /* LayoutExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
