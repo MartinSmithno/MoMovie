@@ -21,3 +21,35 @@ enum Tab: Int, CaseIterable {
         }
     }
 }
+
+final class TabBarController: UITabBarController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupTabBar()
+    }
+    
+    private func setupTabBar() {
+        let appearance = UITabBarAppearance()
+        appearance.backgroundColor = .dynamicColor(light: Colors.main, dark: Colors.grey)
+        setTabBarItemAppearance(appearance.stackedLayoutAppearance)
+        tabBar.standardAppearance = appearance
+        if #available(iOS 15, *) {
+            tabBar.scrollEdgeAppearance = appearance
+        }
+    }
+    
+    private func setTabBarItemAppearance(_ appearance: UITabBarItemAppearance) {
+        let tabBarFontLight = UIFont(name: "Helvetica Light", size: 10)!
+        let tabBarFontBold = UIFont(name: "Helvetica Light", size: 10)!
+        appearance.normal.iconColor = .darkGray
+        appearance.normal.titleTextAttributes = [
+            .font: tabBarFontLight,
+            .foregroundColor: UIColor.dynamicColor(light: Colors.lightOrange, dark: Colors.darkOrange)
+        ]
+        appearance.selected.titleTextAttributes = [
+            .font: tabBarFontBold,
+            .foregroundColor: UIColor.dynamicColor(light: Colors.lightOrange, dark: Colors.darkOrange)
+        ]
+    }
+}
