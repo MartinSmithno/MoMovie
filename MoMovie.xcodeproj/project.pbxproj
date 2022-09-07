@@ -13,6 +13,8 @@
 		2C6DEC9728C5158C00142B15 /* LayoutExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6DEC9628C5158C00142B15 /* LayoutExtensions.swift */; };
 		2C6DEC9928C5276F00142B15 /* UINavigationBarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6DEC9828C5276F00142B15 /* UINavigationBarExtensions.swift */; };
 		2CA7B4A128C68996002DB72F /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA7B4A028C68996002DB72F /* TabBarController.swift */; };
+		2CAE2C0628C919D80067F1E3 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE2C0528C919D80067F1E3 /* ProfileVC.swift */; };
+		2CAE2C0828C91A6B0067F1E3 /* LikeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE2C0728C91A6B0067F1E3 /* LikeVC.swift */; };
 		2CB0232028C4E8A100686BAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB0231F28C4E8A100686BAF /* AppDelegate.swift */; };
 		2CB0232228C4E8A100686BAF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB0232128C4E8A100686BAF /* SceneDelegate.swift */; };
 		2CB0232428C4E8A100686BAF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB0232328C4E8A100686BAF /* ViewController.swift */; };
@@ -29,6 +31,8 @@
 		2C6DEC9628C5158C00142B15 /* LayoutExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutExtensions.swift; sourceTree = "<group>"; };
 		2C6DEC9828C5276F00142B15 /* UINavigationBarExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationBarExtensions.swift; sourceTree = "<group>"; };
 		2CA7B4A028C68996002DB72F /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		2CAE2C0528C919D80067F1E3 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		2CAE2C0728C91A6B0067F1E3 /* LikeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeVC.swift; sourceTree = "<group>"; };
 		2CB0231C28C4E8A100686BAF /* MoMovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoMovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CB0231F28C4E8A100686BAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CB0232128C4E8A100686BAF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -110,6 +114,22 @@
 			path = "Tab Bar";
 			sourceTree = "<group>";
 		};
+		2CAE2C0328C919690067F1E3 /* Like */ = {
+			isa = PBXGroup;
+			children = (
+				2CAE2C0728C91A6B0067F1E3 /* LikeVC.swift */,
+			);
+			path = Like;
+			sourceTree = "<group>";
+		};
+		2CAE2C0428C919730067F1E3 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				2CAE2C0528C919D80067F1E3 /* ProfileVC.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		2CB0231328C4E8A100686BAF = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +153,8 @@
 				2CB0232128C4E8A100686BAF /* SceneDelegate.swift */,
 				2C6DEC8E28C5004100142B15 /* Launch */,
 				2C6DEC8D28C5000100142B15 /* Home */,
+				2CAE2C0328C919690067F1E3 /* Like */,
+				2CAE2C0428C919730067F1E3 /* Profile */,
 				2C6DEC9128C50D3C00142B15 /* Extensions */,
 				2CA7B49F28C68909002DB72F /* Tab Bar */,
 				2CB0232328C4E8A100686BAF /* ViewController.swift */,
@@ -220,10 +242,12 @@
 				2C6DEC9028C5007600142B15 /* AppLaunchVC.swift in Sources */,
 				2CA7B4A128C68996002DB72F /* TabBarController.swift in Sources */,
 				2C6DEC9928C5276F00142B15 /* UINavigationBarExtensions.swift in Sources */,
+				2CAE2C0828C91A6B0067F1E3 /* LikeVC.swift in Sources */,
 				2C6DEC9528C5116500142B15 /* Colors.swift in Sources */,
 				2C6DEC9328C50D6300142B15 /* UIColorExtensions.swift in Sources */,
 				2CB0232028C4E8A100686BAF /* AppDelegate.swift in Sources */,
 				2CB0232228C4E8A100686BAF /* SceneDelegate.swift in Sources */,
+				2CAE2C0628C919D80067F1E3 /* ProfileVC.swift in Sources */,
 				2C6DEC9728C5158C00142B15 /* LayoutExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
