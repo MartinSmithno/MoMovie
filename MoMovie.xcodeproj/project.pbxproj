@@ -14,10 +14,10 @@
 		2C6DEC9928C5276F00142B15 /* UINavigationBarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6DEC9828C5276F00142B15 /* UINavigationBarExtensions.swift */; };
 		2CA7B4A128C68996002DB72F /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA7B4A028C68996002DB72F /* TabBarController.swift */; };
 		2CAE2C0628C919D80067F1E3 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE2C0528C919D80067F1E3 /* ProfileVC.swift */; };
-		2CAE2C0828C91A6B0067F1E3 /* LikeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE2C0728C91A6B0067F1E3 /* LikeVC.swift */; };
+		2CAE2C0828C91A6B0067F1E3 /* FavoritesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE2C0728C91A6B0067F1E3 /* FavoritesVC.swift */; };
 		2CB0232028C4E8A100686BAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB0231F28C4E8A100686BAF /* AppDelegate.swift */; };
 		2CB0232228C4E8A100686BAF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB0232128C4E8A100686BAF /* SceneDelegate.swift */; };
-		2CB0232428C4E8A100686BAF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB0232328C4E8A100686BAF /* ViewController.swift */; };
+		2CB0232428C4E8A100686BAF /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB0232328C4E8A100686BAF /* HomeVC.swift */; };
 		2CB0232A28C4E8A100686BAF /* MoMovie.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2CB0232828C4E8A100686BAF /* MoMovie.xcdatamodeld */; };
 		2CB0232C28C4E8A800686BAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CB0232B28C4E8A800686BAF /* Assets.xcassets */; };
 		2CB0232F28C4E8A800686BAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CB0232D28C4E8A800686BAF /* LaunchScreen.storyboard */; };
@@ -31,11 +31,11 @@
 		2C6DEC9828C5276F00142B15 /* UINavigationBarExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationBarExtensions.swift; sourceTree = "<group>"; };
 		2CA7B4A028C68996002DB72F /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		2CAE2C0528C919D80067F1E3 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
-		2CAE2C0728C91A6B0067F1E3 /* LikeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeVC.swift; sourceTree = "<group>"; };
+		2CAE2C0728C91A6B0067F1E3 /* FavoritesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesVC.swift; sourceTree = "<group>"; };
 		2CB0231C28C4E8A100686BAF /* MoMovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoMovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CB0231F28C4E8A100686BAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CB0232128C4E8A100686BAF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2CB0232328C4E8A100686BAF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2CB0232328C4E8A100686BAF /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		2CB0232928C4E8A100686BAF /* MoMovie.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MoMovie.xcdatamodel; sourceTree = "<group>"; };
 		2CB0232B28C4E8A800686BAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2CB0232E28C4E8A800686BAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -63,6 +63,7 @@
 		2C6DEC8B28C4FFE200142B15 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2CB0232328C4E8A100686BAF /* HomeVC.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -115,7 +116,7 @@
 		2CAE2C0328C919690067F1E3 /* Like */ = {
 			isa = PBXGroup;
 			children = (
-				2CAE2C0728C91A6B0067F1E3 /* LikeVC.swift */,
+				2CAE2C0728C91A6B0067F1E3 /* FavoritesVC.swift */,
 			);
 			path = Like;
 			sourceTree = "<group>";
@@ -155,7 +156,6 @@
 				2CAE2C0428C919730067F1E3 /* Profile */,
 				2C6DEC9128C50D3C00142B15 /* Extensions */,
 				2CA7B49F28C68909002DB72F /* Tab Bar */,
-				2CB0232328C4E8A100686BAF /* ViewController.swift */,
 				2CB0232B28C4E8A800686BAF /* Assets.xcassets */,
 				2CB0233028C4E8A800686BAF /* Info.plist */,
 				2CB0232828C4E8A100686BAF /* MoMovie.xcdatamodeld */,
@@ -234,11 +234,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CB0232A28C4E8A100686BAF /* MoMovie.xcdatamodeld in Sources */,
-				2CB0232428C4E8A100686BAF /* ViewController.swift in Sources */,
+				2CB0232428C4E8A100686BAF /* HomeVC.swift in Sources */,
 				2C6DEC9028C5007600142B15 /* AppLaunchVC.swift in Sources */,
 				2CA7B4A128C68996002DB72F /* TabBarController.swift in Sources */,
 				2C6DEC9928C5276F00142B15 /* UINavigationBarExtensions.swift in Sources */,
-				2CAE2C0828C91A6B0067F1E3 /* LikeVC.swift in Sources */,
+				2CAE2C0828C91A6B0067F1E3 /* FavoritesVC.swift in Sources */,
 				2C6DEC9528C5116500142B15 /* Colors.swift in Sources */,
 				2C6DEC9328C50D6300142B15 /* UIColorExtensions.swift in Sources */,
 				2CB0232028C4E8A100686BAF /* AppDelegate.swift in Sources */,

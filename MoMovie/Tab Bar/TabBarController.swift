@@ -1,22 +1,22 @@
 import UIKit
 
 enum Tab: Int, CaseIterable {
-    case search = 0
-    case like = 1
+    case favorites = 0
+    case home = 1
     case profile = 2
     
     var title: String {
         switch self {
-        case .search: return "Search"
-        case .like: return "Like"
+        case .favorites: return "Favorites"
+        case .home: return "Home"
         case .profile: return "Profile"
         }
     }
     
     var iconName: String {
         switch self {
-        case .search: return "magnifyingglass"
-        case .like: return "heart.fill"
+        case .favorites: return "heart.fill"
+        case .home: return "house"
         case .profile: return "person.crop.circle"
         }
     }
@@ -27,10 +27,10 @@ final class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTabBar()
-        view.backgroundColor = .systemBackground
-           UITabBar.appearance().barTintColor = .systemBackground
-           tabBar.tintColor = .label
-           setupVCs()
+        //view.backgroundColor = .systemBackground
+        //UITabBar.appearance().barTintColor = .systemBackground
+        tabBar.tintColor = .label
+        setupVCs()
     }
     
     fileprivate func createNavController(for rootViewController: UIViewController,
@@ -46,16 +46,16 @@ final class TabBarController: UITabBarController {
     
     func setupVCs() {
         viewControllers = [
-            createNavController(for: ViewController(), title: NSLocalizedString("Search", comment: ""), image: UIImage(systemName: "magnifyingglass")!),
-            createNavController(for: ViewController(), title: NSLocalizedString("Home", comment: ""), image: UIImage(systemName: "house")!),
-            createNavController(for: ViewController(), title: NSLocalizedString("Profile", comment: ""), image: UIImage(systemName: "person")!)
+            createNavController(for: FavoritesVC(), title: Tab.favorites.title, image: UIImage(systemName: Tab.favorites.iconName)!),
+            createNavController(for: HomeVC(), title: Tab.home.title, image: UIImage(systemName: Tab.home.iconName)!),
+            createNavController(for: ProfileVC(), title: Tab.profile.title, image: UIImage(systemName: Tab.profile.iconName)!)
         ]
     }
     
     private func setupTabBar() {
         let appearance = UITabBarAppearance()
         appearance.backgroundColor = .dynamicColor(light: Colors.main, dark: Colors.grey)
-        setTabBarItemAppearance(appearance.stackedLayoutAppearance)
+        setTabBarItemAppearance(appearance.inlineLayoutAppearance)
         tabBar.standardAppearance = appearance
         if #available(iOS 15, *) {
             tabBar.scrollEdgeAppearance = appearance

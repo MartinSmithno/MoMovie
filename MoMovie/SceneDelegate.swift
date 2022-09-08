@@ -14,11 +14,48 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
+        
         window = UIWindow(frame: UIScreen.main.bounds)
-        let home = TabBarController()
-        self.window?.rootViewController = home
+        self.window?.rootViewController = createTabBar()
         window?.makeKeyAndVisible()
         window?.windowScene = windowScene
+    }
+    
+    func createFavoritesNC() -> UINavigationController {
+        let favoritesVC = FavoritesVC()
+        favoritesVC.title = "Favorites"
+        favoritesVC.tabBarItem = UITabBarItem.init(tabBarSystemItem: .favorites, tag: 0)
+        
+        return UINavigationController(rootViewController: favoritesVC)
+    }
+    
+    func createHomeNC() -> UINavigationController {
+        let homeVC = HomeVC()
+        homeVC.title = "Home"
+        homeVC.tabBarItem = UITabBarItem.init(tabBarSystemItem: .search, tag: 1)
+        
+        return UINavigationController(rootViewController: homeVC)
+    }
+    
+    func createProfileNC() -> UINavigationController {
+        let profileVC = ProfileVC()
+        profileVC.title = "Profile"
+        profileVC.tabBarItem = UITabBarItem.init(tabBarSystemItem: .contacts, tag: 2)
+        
+        return UINavigationController(rootViewController: profileVC)
+    }
+    
+    func createTabBar() -> UITabBarController {
+        
+        let tabbar = TabBarController()
+        UITabBar.appearance().tintColor = .systemBlue
+        tabbar.viewControllers = [
+            createFavoritesNC(),
+            createHomeNC(),
+            createProfileNC()
+        ]
+        
+        return tabbar
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
