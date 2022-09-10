@@ -24,7 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func createFavoritesNC() -> UINavigationController {
         let favoritesVC = FavoritesVC()
         favoritesVC.title = "Favorites"
-        favoritesVC.tabBarItem = UITabBarItem.init(tabBarSystemItem: .favorites, tag: 0)
+        favoritesVC.tabBarItem = UITabBarItem.init(title: "Favorites", image: UIImage(systemName: "heart.fill"), tag: 0)
         
         return UINavigationController(rootViewController: favoritesVC)
     }
@@ -32,15 +32,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func createHomeNC() -> UINavigationController {
         let homeVC = HomeVC()
         homeVC.title = "Home"
-        homeVC.tabBarItem = UITabBarItem.init(tabBarSystemItem: .search, tag: 1)
-        
+        homeVC.tabBarItem = UITabBarItem.init(title: "Home", image: UIImage(systemName: "list.and.film"), tag: 1)
         return UINavigationController(rootViewController: homeVC)
     }
     
     func createProfileNC() -> UINavigationController {
         let profileVC = ProfileVC()
         profileVC.title = "Profile"
-        profileVC.tabBarItem = UITabBarItem.init(tabBarSystemItem: .contacts, tag: 2)
+        profileVC.tabBarItem = UITabBarItem.init(title: "Profile", image: UIImage(systemName: "person.crop.circle.fill"), tag: 2)
         
         return UINavigationController(rootViewController: profileVC)
     }
@@ -48,7 +47,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func createTabBar() -> UITabBarController {
         
         let tabbar = TabBarController()
-        UITabBar.appearance().tintColor = .systemBlue
+        UITabBar.appearance().tintColor = .white
         tabbar.viewControllers = [
             createFavoritesNC(),
             createHomeNC(),
