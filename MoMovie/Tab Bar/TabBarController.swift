@@ -31,8 +31,10 @@ final class TabBarController: UITabBarController {
     
     private func setupTabBar() {
         let appearance = UITabBarAppearance()
-        appearance.backgroundColor = .dynamicColor(light: Colors.lightBlue, dark: Colors.darkBlue)
+        appearance.backgroundColor = .dynamicColor(light: Colors.lightOrange, dark: Colors.darkBlue)
         setTabBarItemAppearance(appearance.inlineLayoutAppearance)
+        setTabBarItemAppearance(appearance.stackedLayoutAppearance)
+        setTabBarItemAppearance(appearance.compactInlineLayoutAppearance)
         tabBar.standardAppearance = appearance
         if #available(iOS 15, *) {
             tabBar.scrollEdgeAppearance = appearance
@@ -40,13 +42,14 @@ final class TabBarController: UITabBarController {
     }
     
     private func setTabBarItemAppearance(_ appearance: UITabBarItemAppearance) {
-        let tabBarFontLight = UIFont(name: "Helvetica Light", size: 10)!
-        let tabBarFontBold = UIFont(name: "Helvetica Light", size: 10)!
-        appearance.normal.iconColor = .white
+        let tabBarFontLight = UIFont(name: "Helvetica Light", size: 20)!
+        let tabBarFontBold = UIFont(name: "Helvetica Light", size: 20)!
+        appearance.normal.iconColor = .systemGray
         appearance.normal.titleTextAttributes = [
             .font: tabBarFontLight,
-            .foregroundColor: UIColor.dynamicColor(light: Colors.lightOrange, dark: Colors.darkOrange)
+            .foregroundColor: UIColor.dynamicColor(light: Colors.sand, dark: Colors.warmSand)
         ]
+        appearance.selected.iconColor = .white
         appearance.selected.titleTextAttributes = [
             .font: tabBarFontBold,
             .foregroundColor: UIColor.dynamicColor(light: Colors.lightOrange, dark: Colors.darkOrange)
