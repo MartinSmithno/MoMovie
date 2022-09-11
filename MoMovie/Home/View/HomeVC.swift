@@ -17,11 +17,39 @@ class HomeVC: UIViewController {
         return textField
     }()
     
+    private var searchButton: UIButton = {
+        let button = UIButton()
+        button.tintColor = .red
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = Colors.main
         self.title = "Home"
         print("HomePage loadded")
+        addViews()
+        addConstraints()
+    }
+    
+    private func addViews() {
+        view.addAutolayoutSubView(searchTextField)
+        view.addAutolayoutSubView(searchButton)
+    }
+    
+    private func addConstraints() {
+        let safeArea = view.safeAreaLayoutGuide
+        
+        NSLayoutConstraint.activate([
+            searchTextField.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 2.0),
+            searchTextField.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 2.0),
+            searchTextField.trailingAnchor.constraint(equalTo: searchButton.leadingAnchor, constant: 4.0),
+            searchTextField.heightAnchor.constraint(equalToConstant: 60.0),
+            
+            searchButton.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 2.0),
+            searchButton.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: 2.0),
+            searchButton.heightAnchor.constraint(equalTo: searchTextField.heightAnchor)
+        ])
     }
     
     
