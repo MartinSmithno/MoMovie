@@ -32,6 +32,7 @@ class HomeVC: UIViewController {
     }()
     
     private var toolbar = GradientToolbar()
+    private var tableView = UITableView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +46,8 @@ class HomeVC: UIViewController {
     private func addViews() {
         view.addAutolayoutSubView(searchTextField)
         view.addAutolayoutSubView(searchButton)
+        view.addAutolayoutSubView(tableView)
+        view.addAutolayoutSubView(toolbar)
     }
     
     private func addConstraints() {
@@ -59,7 +62,17 @@ class HomeVC: UIViewController {
             searchButton.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 2.0),
             searchButton.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -2.0),
             searchButton.heightAnchor.constraint(equalTo: searchTextField.heightAnchor),
-            searchButton.widthAnchor.constraint(equalTo: searchButton.heightAnchor)
+            searchButton.widthAnchor.constraint(equalTo: searchButton.heightAnchor),
+            
+            tableView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 2),
+            tableView.topAnchor.constraint(equalTo: searchTextField.bottomAnchor, constant: 6.0),
+            tableView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -2),
+            
+            toolbar.heightAnchor.constraint(equalToConstant: 60),
+            toolbar.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
+            toolbar.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: 4.0),
+            toolbar.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -2),
+            toolbar.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: -2)
         ])
     }
     
