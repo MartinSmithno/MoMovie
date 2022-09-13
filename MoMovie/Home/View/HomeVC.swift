@@ -33,6 +33,14 @@ class HomeVC: UIViewController {
     
     private var toolbar = GradientToolbar()
     private var tableView = UITableView()
+    private var searchButton2: UIButton = {
+        let button = UIButton(type: .roundedRect)
+        button.layer.cornerRadius = 24
+        button.layer.masksToBounds = false
+        button.titleLabel?.text = "Search"
+        button.titleLabel?.textAlignment = .center
+        return button
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +56,7 @@ class HomeVC: UIViewController {
         view.addAutolayoutSubView(searchButton)
         view.addAutolayoutSubView(tableView)
         view.addAutolayoutSubView(toolbar)
+        toolbar.addAutolayoutSubView(searchButton2)
     }
     
     private func addConstraints() {
@@ -72,7 +81,10 @@ class HomeVC: UIViewController {
             toolbar.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
             toolbar.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: 4.0),
             toolbar.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -2),
-            toolbar.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: -2)
+            toolbar.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: -2),
+            
+            searchButton2.centerXAnchor.constraint(equalTo: toolbar.centerXAnchor),
+            searchButton2.centerYAnchor.constraint(equalTo: toolbar.centerYAnchor)
         ])
     }
     
