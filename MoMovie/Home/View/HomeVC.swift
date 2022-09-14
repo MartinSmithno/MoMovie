@@ -22,7 +22,7 @@ class HomeVC: UIViewController {
     
     private var searchButton: UIButton = {
         let button = UIButton(type: .system)
-        button.layer.cornerRadius = 5
+        button.layer.cornerRadius = 24
         button.layer.masksToBounds = false
         button.layer.borderColor = UIColor.systemGray3.cgColor
         button.layer.borderWidth = 1
