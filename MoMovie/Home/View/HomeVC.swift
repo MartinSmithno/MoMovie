@@ -17,28 +17,30 @@ class HomeVC: UIViewController {
         return textField
     }()
     
-    private var searchButton: UIButton = {
-        let button = UIButton(type: .custom)
-        button.setImage(UIImage(systemName: "magnifyingglass.circle"), for: .normal)
-        button.setImage(UIImage(systemName: "magnifyingglass.circle.fill"), for: .highlighted)
-        button.backgroundColor = .dynamicColor(light: Colors.lightOrange, dark: Colors.sand)
-        button.tintColor = .red
-        button.layer.cornerRadius = 5
-        button.layer.borderWidth = 1
-        button.layer.borderColor = UIColor.systemGray3.cgColor
-        
-        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
-        return button
-    }()
-    
     private var toolbar = GradientToolbar()
     private var tableView = UITableView()
-    private var searchButton2: UIButton = {
-        let button = UIButton(type: .roundedRect)
-        button.layer.cornerRadius = 24
+    
+    private var searchButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.layer.cornerRadius = 5
         button.layer.masksToBounds = false
-        button.titleLabel?.text = "Search"
+        button.layer.borderColor = UIColor.systemGray3.cgColor
+        button.layer.borderWidth = 1
+        button.setTitle("Search", for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         button.titleLabel?.textAlignment = .center
+        button.titleLabel?.adjustsFontSizeToFitWidth = false
+        button.backgroundColor = Colors.lightOrange
+        button.tintColor = Colors.darkBlue
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.contentEdgeInsets = UIEdgeInsets(
+            top: 15,
+            left: 25,
+            bottom: 15,
+            right: 25
+        )
+        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        
         return button
     }()
     
@@ -53,10 +55,9 @@ class HomeVC: UIViewController {
     
     private func addViews() {
         view.addAutolayoutSubView(searchTextField)
-        view.addAutolayoutSubView(searchButton)
         view.addAutolayoutSubView(tableView)
         view.addAutolayoutSubView(toolbar)
-        toolbar.addAutolayoutSubView(searchButton2)
+        toolbar.addAutolayoutSubView(searchButton)
     }
     
     private func addConstraints() {
@@ -65,26 +66,21 @@ class HomeVC: UIViewController {
         NSLayoutConstraint.activate([
             searchTextField.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 2.0),
             searchTextField.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 2.0),
-            searchTextField.trailingAnchor.constraint(equalTo: searchButton.leadingAnchor, constant: -6.0),
+            searchTextField.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -2.0),
             searchTextField.heightAnchor.constraint(equalToConstant: 60.0),
-            
-            searchButton.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 2.0),
-            searchButton.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -2.0),
-            searchButton.heightAnchor.constraint(equalTo: searchTextField.heightAnchor),
-            searchButton.widthAnchor.constraint(equalTo: searchButton.heightAnchor),
             
             tableView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 2),
             tableView.topAnchor.constraint(equalTo: searchTextField.bottomAnchor, constant: 6.0),
             tableView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -2),
+            tableView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
             
             toolbar.heightAnchor.constraint(equalToConstant: 60),
             toolbar.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
-            toolbar.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: 4.0),
             toolbar.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -2),
             toolbar.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: -2),
             
-            searchButton2.centerXAnchor.constraint(equalTo: toolbar.centerXAnchor),
-            searchButton2.centerYAnchor.constraint(equalTo: toolbar.centerYAnchor)
+            searchButton.centerXAnchor.constraint(equalTo: toolbar.centerXAnchor),
+            searchButton.centerYAnchor.constraint(equalTo: toolbar.centerYAnchor)
         ])
     }
     
