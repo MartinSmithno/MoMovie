@@ -7,7 +7,7 @@ final class MovieCell: UICollectionViewCell {
         static let verticalMargin = 4.0
         static let cellCornerRadius = 8.0
         static let cellBorderWidth = 1.0
-        static let ratingFontSize = 24.0
+        static let ratingFontSize = 20.0
         static let bigFontSize = 18.0
         static let regularFontSize = 16.0
         static let smallFontSize = 8.0
@@ -19,7 +19,7 @@ final class MovieCell: UICollectionViewCell {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.distribution = .fill
-        stackView.alignment = .center
+        stackView.alignment = .firstBaseline
         stackView.spacing = Shapes.spacing
         return stackView
     }()
@@ -32,7 +32,7 @@ final class MovieCell: UICollectionViewCell {
             return imageView
         }
         imageView.image = image
-
+        
         return imageView
     }()
     
@@ -40,6 +40,9 @@ final class MovieCell: UICollectionViewCell {
         let rating = UILabel()
         rating.font = UIFont.boldSystemFont(ofSize: Shapes.ratingFontSize)
         rating.text = "74%"
+        rating.layer.borderWidth = Shapes.cellBorderWidth
+        rating.layer.borderColor = UIColor.black.cgColor
+        rating.layer.cornerRadius = Shapes.cellCornerRadius
         
         return rating
     }()
@@ -77,13 +80,14 @@ final class MovieCell: UICollectionViewCell {
     }
     
     func setupContentView() {
-        contentView.backgroundColor = .systemRed
+        contentView.backgroundColor = .clear
         contentView.layer.borderColor = UIColor.black.cgColor
         contentView.layer.borderWidth = Shapes.cellBorderWidth
         contentView.layer.cornerRadius = Shapes.cellCornerRadius
     }
     
     private func addViews() {
+        contentView.addAutolayoutSubView(previewStackView)
         previewStackView.addAutolayoutSubView(poster)
         previewStackView.addAutolayoutSubView(rating)
         previewStackView.addAutolayoutSubView(title)
@@ -93,21 +97,20 @@ final class MovieCell: UICollectionViewCell {
     private func addConstraints() {
         
         NSLayoutConstraint.activate([
-            poster.leadingAnchor.constraint(equalTo: leadingAnchor),
-            poster.topAnchor.constraint(equalTo: topAnchor),
-            poster.trailingAnchor.constraint(equalTo: trailingAnchor),
+            poster.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            poster.topAnchor.constraint(equalTo: contentView.topAnchor),
+            poster.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             
-            rating.centerXAnchor.constraint(equalTo: centerXAnchor),
-            rating.topAnchor.constraint(equalTo: poster.bottomAnchor, constant: 1.0),
+            rating.centerYAnchor.constraint(equalTo: poster.bottomAnchor),
             
-            title.leadingAnchor.constraint(equalTo: leadingAnchor),
+            title.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Shapes.verticalMargin),
             title.topAnchor.constraint(equalTo: rating.bottomAnchor, constant: 1.0),
-            title.trailingAnchor.constraint(equalTo: trailingAnchor),
+            title.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Shapes.verticalMargin),
             
-            releaseDate.leadingAnchor.constraint(equalTo: leadingAnchor),
+            releaseDate.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Shapes.verticalMargin),
             releaseDate.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 2.0),
-            releaseDate.trailingAnchor.constraint(equalTo: trailingAnchor),
-            releaseDate.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 2)
+            releaseDate.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Shapes.verticalMargin),
+            releaseDate.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -Shapes.verticalMargin)
         ])
         
     }
