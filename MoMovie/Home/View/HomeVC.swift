@@ -1,6 +1,6 @@
 import UIKit
 
-class HomeVC: UIViewController {
+final class HomeVC: UIViewController {
     
     private var searchTextField: UITextField = {
         let textField = UITextField()
@@ -16,6 +16,8 @@ class HomeVC: UIViewController {
         
         return textField
     }()
+    
+    private var trendingCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
     private var toolbar = GradientToolbar()
     private var tableView = UITableView()
@@ -39,7 +41,7 @@ class HomeVC: UIViewController {
             bottom: 15,
             right: 25
         )
-        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        //button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         
         return button
     }()
@@ -55,6 +57,7 @@ class HomeVC: UIViewController {
     
     private func addViews() {
         view.addAutolayoutSubView(searchTextField)
+        view.addAutolayoutSubView(trendingCollectionView)
         view.addAutolayoutSubView(tableView)
         view.addAutolayoutSubView(toolbar)
         toolbar.addAutolayoutSubView(searchButton)
@@ -69,8 +72,12 @@ class HomeVC: UIViewController {
             searchTextField.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -2.0),
             searchTextField.heightAnchor.constraint(equalToConstant: 60.0),
             
+            trendingCollectionView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 2.0),
+            trendingCollectionView.topAnchor.constraint(equalTo: searchTextField.bottomAnchor, constant: 6.0),
+            trendingCollectionView.leadingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -2.0),
+
             tableView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 2),
-            tableView.topAnchor.constraint(equalTo: searchTextField.bottomAnchor, constant: 6.0),
+            tableView.topAnchor.constraint(equalTo: trendingCollectionView.bottomAnchor, constant: 6.0),
             tableView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -2),
             tableView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
             
