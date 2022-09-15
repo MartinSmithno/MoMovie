@@ -113,14 +113,13 @@ final class HomeVC: UIViewController {
 
 extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return 4
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCell.id, for: indexPath)
         cell.layer.borderColor = UIColor.systemBlue.cgColor
-        cell.backgroundColor = UIColor.systemGray
         return cell
         
     }
