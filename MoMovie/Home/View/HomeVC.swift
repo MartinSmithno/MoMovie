@@ -96,6 +96,33 @@ final class HomeVC: UIViewController {
         print("Button pressed")
     }
     
+    private func setupCollectionView() {
+        let layout = UICollectionViewFlowLayout()
+        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        layout.scrollDirection = .horizontal
+        layout.minimumInteritemSpacing = 8.0
+        
+        trendingCollectionView.collectionViewLayout = layout
+        trendingCollectionView.register(MovieCell.self, forCellWithReuseIdentifier: MovieCell.id)
+        
+        
+    }
+    
+    private func setDelegateDataSources() {
+        
+        trendingCollectionView.delegate = self
+        trendingCollectionView.dataSource = self
+        
+    }
     
 }
 
+extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        <#code#>
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        <#code#>
+    }
+}

@@ -13,6 +13,7 @@
 		2C6DEC9728C5158C00142B15 /* LayoutExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6DEC9628C5158C00142B15 /* LayoutExtensions.swift */; };
 		2C6DEC9928C5276F00142B15 /* UINavigationBarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6DEC9828C5276F00142B15 /* UINavigationBarExtensions.swift */; };
 		2CA7B4A128C68996002DB72F /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA7B4A028C68996002DB72F /* TabBarController.swift */; };
+		2CA8526628D356C800B63B2F /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA8526528D356C800B63B2F /* MovieCell.swift */; };
 		2CAA265F28D2716B0036E23D /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAA265E28D2716B0036E23D /* APIKey.swift */; };
 		2CADD0C128CFC64500E1493A /* GradientToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CADD0C028CFC64500E1493A /* GradientToolbar.swift */; };
 		2CAE2C0628C919D80067F1E3 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE2C0528C919D80067F1E3 /* ProfileVC.swift */; };
@@ -32,6 +33,7 @@
 		2C6DEC9628C5158C00142B15 /* LayoutExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutExtensions.swift; sourceTree = "<group>"; };
 		2C6DEC9828C5276F00142B15 /* UINavigationBarExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationBarExtensions.swift; sourceTree = "<group>"; };
 		2CA7B4A028C68996002DB72F /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		2CA8526528D356C800B63B2F /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		2CAA265E28D2716B0036E23D /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		2CADD0C028CFC64500E1493A /* GradientToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientToolbar.swift; sourceTree = "<group>"; };
 		2CAE2C0528C919D80067F1E3 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
@@ -117,6 +119,24 @@
 			path = "Tab Bar";
 			sourceTree = "<group>";
 		};
+		2CA8526328D3569300B63B2F /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				2CADD0BF28CFC60200E1493A /* Toolbar */,
+				2CA7B49F28C68909002DB72F /* Tab Bar */,
+				2CA8526428D356A500B63B2F /* CollectionCells */,
+			);
+			path = UIComponents;
+			sourceTree = "<group>";
+		};
+		2CA8526428D356A500B63B2F /* CollectionCells */ = {
+			isa = PBXGroup;
+			children = (
+				2CA8526528D356C800B63B2F /* MovieCell.swift */,
+			);
+			path = CollectionCells;
+			sourceTree = "<group>";
+		};
 		2CADD0BF28CFC60200E1493A /* Toolbar */ = {
 			isa = PBXGroup;
 			children = (
@@ -167,8 +187,7 @@
 				2CAE2C0328C919690067F1E3 /* Like */,
 				2CAE2C0428C919730067F1E3 /* Profile */,
 				2C6DEC9128C50D3C00142B15 /* Extensions */,
-				2CADD0BF28CFC60200E1493A /* Toolbar */,
-				2CA7B49F28C68909002DB72F /* Tab Bar */,
+				2CA8526328D3569300B63B2F /* UIComponents */,
 				2CB0232B28C4E8A800686BAF /* Assets.xcassets */,
 				2CB0233028C4E8A800686BAF /* Info.plist */,
 				2CB0232828C4E8A100686BAF /* MoMovie.xcdatamodeld */,
@@ -255,6 +274,7 @@
 				2CAE2C0828C91A6B0067F1E3 /* FavoritesVC.swift in Sources */,
 				2C6DEC9528C5116500142B15 /* Colors.swift in Sources */,
 				2C6DEC9328C50D6300142B15 /* UIColorExtensions.swift in Sources */,
+				2CA8526628D356C800B63B2F /* MovieCell.swift in Sources */,
 				2CAA265F28D2716B0036E23D /* APIKey.swift in Sources */,
 				2CADD0C128CFC64500E1493A /* GradientToolbar.swift in Sources */,
 				2CB0232028C4E8A100686BAF /* AppDelegate.swift in Sources */,
