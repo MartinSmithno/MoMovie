@@ -53,6 +53,7 @@ final class HomeVC: UIViewController {
         print("HomePage loadded")
         addViews()
         addConstraints()
+        setupCollectionView()
     }
     
     private func addViews() {
@@ -74,12 +75,12 @@ final class HomeVC: UIViewController {
             
             trendingCollectionView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 2.0),
             trendingCollectionView.topAnchor.constraint(equalTo: searchTextField.bottomAnchor, constant: 6.0),
-            trendingCollectionView.leadingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -2.0),
+            trendingCollectionView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -2.0),
 
             tableView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 2),
             tableView.topAnchor.constraint(equalTo: trendingCollectionView.bottomAnchor, constant: 6.0),
             tableView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -2),
-            tableView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
+            tableView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: -2.0),
             
             toolbar.heightAnchor.constraint(equalToConstant: 60),
             toolbar.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
@@ -99,30 +100,28 @@ final class HomeVC: UIViewController {
     private func setupCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-        layout.scrollDirection = .horizontal
+        layout.scrollDirection = .vertical
         layout.minimumInteritemSpacing = 8.0
-        
-        trendingCollectionView.collectionViewLayout = layout
-        trendingCollectionView.register(MovieCell.self, forCellWithReuseIdentifier: MovieCell.id)
-        
-        
-    }
-    
-    private func setDelegateDataSources() {
         
         trendingCollectionView.delegate = self
         trendingCollectionView.dataSource = self
-        
+        trendingCollectionView.collectionViewLayout = layout
+        trendingCollectionView.register(MovieCell.self, forCellWithReuseIdentifier: MovieCell.id)
     }
-    
+
 }
 
 extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        <#code#>
+        return 20
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        <#code#>
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCell.id, for: indexPath)
+        cell.layer.borderColor = UIColor.systemBlue.cgColor
+        cell.backgroundColor = UIColor.systemGray
+        return cell
+        
     }
 }
