@@ -1,5 +1,35 @@
 import UIKit
 
+enum ListSection {
+    case popularMovies([ListItems])
+    case popularTV([ListItems])
+    case trendingToday([ListItems])
+    case trendingThisWeek([ListItems])
+    
+    var items: [ListItems] {
+        switch self {
+        case .popularMovies(let item),
+             .popularTV(let item),
+             .trendingToday(let item),
+             .trendingThisWeek(let item):
+            return item
+        }
+    }
+    
+    var title: String {
+        switch self {
+        case .popularMovies:
+            return "Popular Movies"
+        case .popularTV:
+            return "Popular TV Shows"
+        case .trendingToday:
+            return "Trending Today"
+        case .trendingThisWeek:
+            return "Trending This Week"
+        }
+    }
+}
+
 final class HomeVC: UIViewController {
     
     private var searchTextField: UITextField = {
