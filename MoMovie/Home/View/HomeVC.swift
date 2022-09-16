@@ -154,9 +154,20 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCell.id, for: indexPath)
-        cell.layer.borderColor = UIColor.systemBlue.cgColor
         
-        return cell
+        switch sections[indexPath.section] {
+        case .popularMovies(let item):
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCell.id, for: indexPath)
+            return cell
+        case .popularTV(let item):
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCell.id, for: indexPath)
+            return cell
+        case .trendingToday(let item):
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCell.id, for: indexPath)
+            return cell
+        case .trendingThisWeek(let item):
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCell.id, for: indexPath)
+            return cell
+        }
     }
 }
