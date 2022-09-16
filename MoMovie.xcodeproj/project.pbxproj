@@ -24,6 +24,7 @@
 		2CB0232A28C4E8A100686BAF /* MoMovie.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2CB0232828C4E8A100686BAF /* MoMovie.xcdatamodeld */; };
 		2CB0232C28C4E8A800686BAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CB0232B28C4E8A800686BAF /* Assets.xcassets */; };
 		2CB0232F28C4E8A800686BAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CB0232D28C4E8A800686BAF /* LaunchScreen.storyboard */; };
+		2CC0813E28D4FEF900A7FDD6 /* ListItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC0813D28D4FEF900A7FDD6 /* ListItems.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		2CB0232B28C4E8A800686BAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2CB0232E28C4E8A800686BAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2CB0233028C4E8A800686BAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2CC0813D28D4FEF900A7FDD6 /* ListItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItems.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		2C6DEC8C28C4FFF300142B15 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2CC0813D28D4FEF900A7FDD6 /* ListItems.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				2CAE2C0828C91A6B0067F1E3 /* FavoritesVC.swift in Sources */,
 				2C6DEC9528C5116500142B15 /* Colors.swift in Sources */,
 				2C6DEC9328C50D6300142B15 /* UIColorExtensions.swift in Sources */,
+				2CC0813E28D4FEF900A7FDD6 /* ListItems.swift in Sources */,
 				2CA8526628D356C800B63B2F /* MovieCell.swift in Sources */,
 				2CAA265F28D2716B0036E23D /* APIKey.swift in Sources */,
 				2CADD0C128CFC64500E1493A /* GradientToolbar.swift in Sources */,

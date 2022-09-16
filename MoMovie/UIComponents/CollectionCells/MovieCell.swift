@@ -40,9 +40,12 @@ final class MovieCell: UICollectionViewCell {
         let rating = UILabel()
         rating.font = UIFont.boldSystemFont(ofSize: Shapes.ratingFontSize)
         rating.text = "74%"
+        rating.textAlignment = .center
         rating.layer.borderWidth = Shapes.cellBorderWidth
+        rating.backgroundColor = .orange
         rating.layer.borderColor = UIColor.black.cgColor
-        rating.layer.cornerRadius = Shapes.cellCornerRadius
+        rating.layer.cornerRadius = 25
+        rating.layer.masksToBounds = true
         
         return rating
     }()
@@ -102,6 +105,8 @@ final class MovieCell: UICollectionViewCell {
             poster.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             
             rating.centerYAnchor.constraint(equalTo: poster.bottomAnchor),
+            rating.heightAnchor.constraint(equalToConstant: 50),
+            rating.heightAnchor.constraint(equalTo: rating.widthAnchor),
             
             title.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Shapes.verticalMargin),
             title.topAnchor.constraint(equalTo: rating.bottomAnchor, constant: 1.0),
