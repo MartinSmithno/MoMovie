@@ -1,5 +1,35 @@
 import UIKit
 
+enum ListSection {
+    case popularMovies([ListItems])
+    case popularTV([ListItems])
+    case trendingToday([ListItems])
+    case trendingThisWeek([ListItems])
+    
+    var items: [ListItems] {
+        switch self {
+        case .popularMovies(let item),
+             .popularTV(let item),
+             .trendingToday(let item),
+             .trendingThisWeek(let item):
+            return item
+        }
+    }
+    
+    var title: String {
+        switch self {
+        case .popularMovies:
+            return "Popular Movies"
+        case .popularTV:
+            return "Popular TV Shows"
+        case .trendingToday:
+            return "Trending Today"
+        case .trendingThisWeek:
+            return "Trending This Week"
+        }
+    }
+}
+
 final class HomeVC: UIViewController {
     
     private var searchTextField: UITextField = {
@@ -113,14 +143,13 @@ final class HomeVC: UIViewController {
 
 extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return 4
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCell.id, for: indexPath)
         cell.layer.borderColor = UIColor.systemBlue.cgColor
-        cell.backgroundColor = UIColor.systemGray
         return cell
         
     }
