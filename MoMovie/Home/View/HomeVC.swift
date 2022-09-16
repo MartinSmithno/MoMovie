@@ -170,4 +170,16 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
             return cell
         }
     }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        switch kind {
+        case UICollectionView.elementKindSectionHeader:
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "identifier", for: indexPath)
+            headerView.backgroundColor = .red
+            // Configure header view .....
+            return headerView
+        default:
+            return UICollectionReusableView()
+        }
+    }
 }
