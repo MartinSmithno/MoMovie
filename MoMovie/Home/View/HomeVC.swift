@@ -1,17 +1,17 @@
 import UIKit
 
 enum ListSection {
-    case popularMovies([ListItems])
-    case popularTV([ListItems])
-    case trendingToday([ListItems])
-    case trendingThisWeek([ListItems])
+    case popularMovies([ListItem])
+    case popularTV([ListItem])
+    case trendingToday([ListItem])
+    case trendingThisWeek([ListItem])
     
-    var items: [ListItems] {
+    var items: [ListItem] {
         switch self {
         case .popularMovies(let item),
-             .popularTV(let item),
-             .trendingToday(let item),
-             .trendingThisWeek(let item):
+                .popularTV(let item),
+                .trendingToday(let item),
+                .trendingThisWeek(let item):
             return item
         }
     }
@@ -51,6 +51,7 @@ final class HomeVC: UIViewController {
     
     private var toolbar = GradientToolbar()
     private var tableView = UITableView()
+    private let sections = MockData.shared.pageData
     
     private var searchButton: UIButton = {
         let button = UIButton(type: .system)
@@ -106,7 +107,7 @@ final class HomeVC: UIViewController {
             trendingCollectionView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 2.0),
             trendingCollectionView.topAnchor.constraint(equalTo: searchTextField.bottomAnchor, constant: 6.0),
             trendingCollectionView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -2.0),
-
+            
             tableView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 2),
             tableView.topAnchor.constraint(equalTo: trendingCollectionView.bottomAnchor, constant: 6.0),
             tableView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -2),
@@ -138,19 +139,47 @@ final class HomeVC: UIViewController {
         trendingCollectionView.collectionViewLayout = layout
         trendingCollectionView.register(MovieCell.self, forCellWithReuseIdentifier: MovieCell.id)
     }
-
+    
 }
 
 extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return sections.count
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        //return sections[section].count
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCell.id, for: indexPath)
-        cell.layer.borderColor = UIColor.systemBlue.cgColor
-        return cell
-        
+        switch sections[indexPath.section] {
+        case .popularMovies(let item):
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCell.id, for: indexPath)
+            return cell
+        case .popularTV(let item):
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCell.id, for: indexPath)
+            return cell
+        case .trendingToday(let item):
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCell.id, for: indexPath)
+            return cell
+        case .trendingThisWeek(let item):
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCell.id, for: indexPath)
+            return cell
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        switch kind {
+        case UICollectionView.elementKindSectionHeader:
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "identifier", for: indexPath)
+            headerView.backgroundColor = .red
+            // Configure header view .....
+            return headerView
+        default:
+            return UICollectionReusableView()
+        }
     }
 }
