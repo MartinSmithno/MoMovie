@@ -3,6 +3,10 @@ import UIKit
 struct MockData {
     static let shared = MockData()
     
+    private let storiesPeople: ListSection = {
+        .storiesPeople([ListItem(title: "Tom Hardy", poster: "tom-hardy")])
+    }()
+    
     private let popularMovies: ListSection = {
         .popularMovies([ListItem(title: "Beast", poster: "beast-poster")])
     }()
@@ -20,6 +24,7 @@ struct MockData {
     }()
     
     var pageData: [ListSection] {
-        [popularMovies, popularTV, trendingToday, trendingThisWeek]
+        //[storiesPeople, popularMovies, popularTV, trendingToday, trendingThisWeek]
+        [storiesPeople]
     }
 }
