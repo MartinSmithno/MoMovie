@@ -47,7 +47,7 @@ final class HomeVC: UIViewController {
         return textField
     }()
     
-    private var trendingCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    private var trendingCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
     
     private var toolbar = GradientToolbar()
     private var tableView = UITableView()
@@ -129,15 +129,47 @@ final class HomeVC: UIViewController {
     }
     
     private func setupCollectionView() {
-        let layout = UICollectionViewFlowLayout()
-        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-        layout.scrollDirection = .vertical
-        layout.minimumInteritemSpacing = 8.0
+//        let layout = UICollectionViewCompositionalLayout()
+//        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+//        layout.scrollDirection = .vertical
+//        layout.minimumInteritemSpacing = 8.0
         
         trendingCollectionView.delegate = self
         trendingCollectionView.dataSource = self
-        trendingCollectionView.collectionViewLayout = layout
+        trendingCollectionView.collectionViewLayout = createLayout()
         trendingCollectionView.register(MovieCell.self, forCellWithReuseIdentifier: MovieCell.id)
+    }
+    
+    //We want to return different layout for different sections
+    private func createLayout() -> UICollectionViewCompositionalLayout {
+        UICollectionViewCompositionalLayout(sectionProvider: { [weak self] sectionIndex, layoutEnvironment in
+            guard let self = self else { return }
+            let section = self.sections[sectionIndex]
+            switch section {
+            case .popularMovies:
+                return
+                //item that fills container
+                let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
+                
+                //group
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .estimated(70), heightDimension: .estimated(70)), subitems: [item])
+                
+                //section
+                let section = NSCollectionLayoutSection(group: group)
+                section.orthogonalScrollingBehavior = .continuous
+                section.interGroupSpacing = 10
+                section.contentInsets = .init(top: 4, leading: 10, bottom: 4, trailing: 10)
+                
+                //return
+                return section
+            case .popularTV:
+                return
+            case .trendingToday:
+                return
+            case .trendingThisWeek:
+                return
+            }
+        }
     }
     
 }
