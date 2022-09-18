@@ -156,6 +156,9 @@ final class HomeVC: UIViewController {
                 
                 //section
                 let section = NSCollectionLayoutSection(group: group)
+                section.orthogonalScrollingBehavior = .continuous
+                section.interGroupSpacing = 10
+                section.contentInsets = .init(top: 4, leading: 10, bottom: 4, trailing: 10)
                 
                 //return
                 return section
@@ -166,7 +169,6 @@ final class HomeVC: UIViewController {
             case .trendingThisWeek:
                 return
             }
-            
         }
     }
     
