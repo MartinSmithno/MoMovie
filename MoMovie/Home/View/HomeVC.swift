@@ -1,6 +1,7 @@
 import UIKit
 
 enum ListSection {
+    case storiesPeople([ListItem])
     case popularMovies([ListItem])
     case popularTV([ListItem])
     case trendingToday([ListItem])
@@ -8,7 +9,8 @@ enum ListSection {
     
     var items: [ListItem] {
         switch self {
-        case .popularMovies(let item),
+        case .storiesPeople(let item),
+                .popularMovies(let item),
                 .popularTV(let item),
                 .trendingToday(let item),
                 .trendingThisWeek(let item):
@@ -18,6 +20,8 @@ enum ListSection {
     
     var title: String {
         switch self {
+        case .storiesPeople:
+            return "Stories"
         case .popularMovies:
             return "Popular Movies"
         case .popularTV:
@@ -138,16 +142,16 @@ final class HomeVC: UIViewController {
         trendingCollectionView.dataSource = self
         trendingCollectionView.collectionViewLayout = createLayout()
         trendingCollectionView.register(MovieCell.self, forCellWithReuseIdentifier: MovieCell.id)
+        trendingCollectionView.register(CollectionViewHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CollectionViewHeader.id)
     }
     
     //We want to return different layout for different sections
     private func createLayout() -> UICollectionViewCompositionalLayout {
-        UICollectionViewCompositionalLayout(sectionProvider: { [weak self] sectionIndex, layoutEnvironment in
+        UICollectionViewCompositionalLayout { [weak self] sectionIndex, layoutEnvironment in
             guard let self = self else { return }
             let section = self.sections[sectionIndex]
             switch section {
-            case .popularMovies:
-                return
+            case .storiesPeople:
                 //item that fills container
                 let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
                 
@@ -159,19 +163,26 @@ final class HomeVC: UIViewController {
                 section.orthogonalScrollingBehavior = .continuous
                 section.interGroupSpacing = 10
                 section.contentInsets = .init(top: 4, leading: 10, bottom: 4, trailing: 10)
-                
+                section.boundarySupplementary = [supplementaryHeaderItem()]
                 //return
                 return section
+            case .popularMovies:
+                return nil
             case .popularTV:
-                return
+                return nil
             case .trendingToday:
-                return
+                return nil
             case .trendingThisWeek:
-                return
+                return nil
             }
         }
     }
     
+    private func supplementaryHeaderItem() -> NSCollectionLayoutBoundarySupplementaryItem {
+        let headerLayout = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(50))
+        let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerLayout, elementKind: UICollectionView.elementKindSectionHeader, alignment: .topLeading)
+        return header
+    }
 }
 
 extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -188,6 +199,9 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         switch sections[indexPath.section] {
+        case .storiesPeople(let item):
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StoriesPeopleCell.id, for: indexPath) as! StoriesPeopleCell
+            return cell
         case .popularMovies(let item):
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCell.id, for: indexPath)
             return cell
@@ -206,10 +220,9 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
         case UICollectionView.elementKindSectionHeader:
-            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "identifier", for: indexPath)
-            headerView.backgroundColor = .red
-            // Configure header view .....
-            return headerView
+            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: CollectionViewHeader.id, for: indexPath) as! CollectionViewHeader
+            header.backgroundColor = .red
+            return header
         default:
             return UICollectionReusableView()
         }

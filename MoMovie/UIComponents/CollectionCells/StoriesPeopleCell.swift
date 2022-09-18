@@ -1,8 +1,8 @@
 import UIKit
 
-final class peopleStoriesCell: UICollectionViewCell {
+final class StoriesPeopleCell: UICollectionViewCell {
     
-    static let id = "PeopleStoriesCell"
+    static let id = "StoriesPeopleCell"
     
     private let profileImage: UIImageView = {
         let imageView = UIImageView()
