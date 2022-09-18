@@ -1,6 +1,6 @@
 import UIKit
 
-final class CollectionViewHeader: UICollectionReusableView {
+class CollectionViewHeader: UICollectionReusableView {
     
     static let id = "Header"
     

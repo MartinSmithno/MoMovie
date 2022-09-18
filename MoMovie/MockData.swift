@@ -19,12 +19,7 @@ struct MockData {
         .trendingToday([ListItem(title: "Pinocchio", poster: "pinocchio-poster")])
     }()
     
-    private let trendingThisWeek: ListSection = {
-        .trendingThisWeek([ListItem(title: "Fall", poster: "mock-poster")])
-    }()
-    
     var pageData: [ListSection] {
-        //[storiesPeople, popularMovies, popularTV, trendingToday, trendingThisWeek]
-        [storiesPeople]
+        [storiesPeople, popularMovies, popularTV, trendingToday]
     }
 }
