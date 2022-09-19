@@ -1,20 +1,8 @@
 import UIKit
 
-enum Shapes {
-    static let spacing = 2.0
-    static let verticalMargin = 4.0
-    static let cellCornerRadius = 8.0
-    static let cellBorderWidth = 1.0
-    static let ratingFontSize = 20.0
-    static let bigFontSize = 18.0
-    static let regularFontSize = 16.0
-    static let smallFontSize = 8.0
-    static let imageCornerRadius = 6.0
-}
-
-final class MovieCell: UICollectionViewCell {
-
-    static let id = "MovieCell"
+final class TrendingCell: UICollectionViewCell {
+    
+    static let id = "TrendingCell"
     
     private var previewStackView: UIStackView = {
         let stackView = UIStackView()
@@ -122,4 +110,9 @@ final class MovieCell: UICollectionViewCell {
         ])
         
     }
+    
+    
+    
+    
+    
 }
