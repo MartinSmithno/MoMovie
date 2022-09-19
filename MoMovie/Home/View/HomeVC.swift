@@ -1,6 +1,6 @@
 import UIKit
 
-class HomeVC: UIViewController {
+final class HomeVC: UIViewController {
     
     private var searchTextField: UITextField = {
         let textField = UITextField()
@@ -17,7 +17,7 @@ class HomeVC: UIViewController {
         return textField
     }()
     
-    private var collectionView: UICollectionView!
+    var collectionView: UICollectionView!
     
     private var toolbar = GradientToolbar()
     private var tableView = UITableView()
@@ -54,7 +54,6 @@ class HomeVC: UIViewController {
         setupCollectionView()
         addViews()
         addConstraints()
-
     }
     
     private func addViews() {
@@ -110,50 +109,51 @@ class HomeVC: UIViewController {
     
     //We want to return different layout for different sections
     private func createLayout() -> UICollectionViewCompositionalLayout {
-        
-        let sectionBase = self.sections[0]
-        switch sectionBase {
-        case .storiesPeople:
-            //item that fills container
-            let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
-            
-            //group
-            let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .estimated(70), heightDimension: .estimated(70)), subitems: [item])
-            
-            //section
-            let section = NSCollectionLayoutSection(group: group)
-            section.orthogonalScrollingBehavior = .continuous
-            section.interGroupSpacing = 10
-            section.contentInsets = .init(top: 4, leading: 10, bottom: 4, trailing: 10)
-            //return
-            return UICollectionViewCompositionalLayout(section: section)
-        case .popularMovies:
-            let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
-            let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .estimated(200), heightDimension: .estimated(300)), subitems: [item])
-            let section = NSCollectionLayoutSection(group: group)
-            section.orthogonalScrollingBehavior = .continuous
-            section.interGroupSpacing = 10
-            section.contentInsets = .init(top: 0, leading: 10, bottom: 30, trailing: 10)
-            
-            return UICollectionViewCompositionalLayout(section: section)
-        case .popularTV:
-            let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
-            let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .estimated(160), heightDimension: .estimated(100)), subitems: [item])
-            let section = NSCollectionLayoutSection(group: group)
-            section.orthogonalScrollingBehavior = .continuous
-            section.interGroupSpacing = 10
-            section.contentInsets = .init(top: 0, leading: 10, bottom: 0, trailing: 10)
-            
-            return UICollectionViewCompositionalLayout(section: section)
-        case .trendingToday:
-            let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
-            let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .estimated(160), heightDimension: .estimated(100)), subitems: [item])
-            let section = NSCollectionLayoutSection(group: group)
-            section.orthogonalScrollingBehavior = .continuous
-            section.interGroupSpacing = 10
-            section.contentInsets = .init(top: 0, leading: 10, bottom: 0, trailing: 10)
-            
-            return UICollectionViewCompositionalLayout(section: section)
+        UICollectionViewCompositionalLayout { [weak self] sectionIndex, layoutEnvironment in
+            let rolle = self!.sections[sectionIndex]
+            switch rolle {
+            case .storiesPeople:
+                //item that fills container
+                let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
+                //group
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .estimated(70), heightDimension: .estimated(70)), subitems: [item])
+                //section
+                let section = NSCollectionLayoutSection(group: group)
+                section.orthogonalScrollingBehavior = .continuous
+                section.interGroupSpacing = 10
+                section.boundarySupplementaryItems = [self!.supplementaryHeaderItem()]
+                section.contentInsets = .init(top: 4, leading: 10, bottom: 4, trailing: 10)
+                //return
+                return section
+            case .popularMovies:
+                let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .estimated(200), heightDimension: .estimated(300)), subitems: [item])
+                let section = NSCollectionLayoutSection(group: group)
+                section.orthogonalScrollingBehavior = .continuous
+                section.interGroupSpacing = 10
+                section.contentInsets = .init(top: 4, leading: 10, bottom: 4, trailing: 10)
+                section.boundarySupplementaryItems = [self!.supplementaryHeaderItem()]
+                return section
+            case .popularTV:
+                let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .estimated(200), heightDimension: .estimated(300)), subitems: [item])
+                let section = NSCollectionLayoutSection(group: group)
+                section.orthogonalScrollingBehavior = .continuous
+                section.interGroupSpacing = 10
+                section.contentInsets = .init(top: 4, leading: 10, bottom: 4, trailing: 10)
+                section.boundarySupplementaryItems = [self!.supplementaryHeaderItem()]
+                return section
+            case .trendingToday:
+                let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .estimated(70), heightDimension: .estimated(70)), subitems: [item])
+
+                let section = NSCollectionLayoutSection(group: group)
+                section.orthogonalScrollingBehavior = .continuous
+                section.interGroupSpacing = 10
+                section.contentInsets = .init(top: 4, leading: 10, bottom: 4, trailing: 10)
+                section.boundarySupplementaryItems = [self!.supplementaryHeaderItem()]
+                return section
+            }
         }
     }
     
@@ -167,17 +167,14 @@ class HomeVC: UIViewController {
 extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 4
+        return sections.count
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return sections[section].count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StoriesPeopleCell.id, for: indexPath) as! StoriesPeopleCell
-        return cell
-        /*
         switch sections[indexPath.section] {
         case .storiesPeople:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StoriesPeopleCell.id, for: indexPath) as! StoriesPeopleCell
@@ -191,14 +188,13 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
         case .trendingToday:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCell.id, for: indexPath) as! MovieCell
             return cell
-        }*/
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
         case UICollectionView.elementKindSectionHeader:
             let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: CollectionViewHeader.id, for: indexPath) as! CollectionViewHeader
-            header.setup()
             return header
         default:
             return UICollectionReusableView()

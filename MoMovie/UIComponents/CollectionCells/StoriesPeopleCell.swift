@@ -7,18 +7,31 @@ final class StoriesPeopleCell: UICollectionViewCell {
     private let profileImage: UIImageView = {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
+        imageView.image = UIImage(named: "tom-hardy")
+        imageView.layoutIfNeeded()
+        imageView.layer.masksToBounds = true
+        imageView.layer.cornerRadius = 35
+
         return imageView
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.addSubview(profileImage)
+        contentView.addAutolayoutSubView(profileImage)
+        addConstraints()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func addConstraints() {
+        NSLayoutConstraint.activate([
+            profileImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            profileImage.topAnchor.constraint(equalTo: contentView.topAnchor),
+            profileImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            profileImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+        ])
     }
     
     private func setup(_ item: ListItem) {
