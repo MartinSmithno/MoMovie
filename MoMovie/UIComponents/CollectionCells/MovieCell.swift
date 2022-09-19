@@ -11,6 +11,7 @@ final class MovieCell: UICollectionViewCell {
         static let bigFontSize = 18.0
         static let regularFontSize = 16.0
         static let smallFontSize = 8.0
+        static let imageCornerRadius = 6.0
     }
     
     static let id = "MovieCell"
@@ -32,6 +33,7 @@ final class MovieCell: UICollectionViewCell {
             return imageView
         }
         imageView.image = image
+        imageView.layer.cornerRadius = Shapes.imageCornerRadius
         
         return imageView
     }()
@@ -40,6 +42,7 @@ final class MovieCell: UICollectionViewCell {
         let rating = UILabel()
         rating.font = UIFont.boldSystemFont(ofSize: Shapes.ratingFontSize)
         rating.text = "74%"
+        rating.textColor = .white
         rating.textAlignment = .center
         rating.layer.borderWidth = Shapes.cellBorderWidth
         rating.backgroundColor = .orange

@@ -16,6 +16,10 @@ enum ListSection {
         }
     }
     
+    var count: Int {
+        return items.count
+    }
+    
     var title: String {
         switch self {
         case .storiesPeople:
