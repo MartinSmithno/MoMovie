@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C583BF128D902B6009E9D6A /* TrendingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C583BF028D902B6009E9D6A /* TrendingCell.swift */; };
 		2C6DEC9028C5007600142B15 /* AppLaunchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6DEC8F28C5007600142B15 /* AppLaunchVC.swift */; };
 		2C6DEC9328C50D6300142B15 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6DEC9228C50D6300142B15 /* UIColorExtensions.swift */; };
 		2C6DEC9528C5116500142B15 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6DEC9428C5116500142B15 /* Colors.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C583BF028D902B6009E9D6A /* TrendingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingCell.swift; sourceTree = "<group>"; };
 		2C6DEC8F28C5007600142B15 /* AppLaunchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLaunchVC.swift; sourceTree = "<group>"; };
 		2C6DEC9228C50D6300142B15 /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		2C6DEC9428C5116500142B15 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				2CA8526528D356C800B63B2F /* MovieCell.swift */,
 				2CACAB9E28D72D0700272801 /* StoriesPeopleCell.swift */,
 				2CACABA028D7421D00272801 /* CollectionViewHeader.swift */,
+				2C583BF028D902B6009E9D6A /* TrendingCell.swift */,
 			);
 			path = CollectionCells;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 				2C6DEC9328C50D6300142B15 /* UIColorExtensions.swift in Sources */,
 				2CC0813E28D4FEF900A7FDD6 /* ListItem.swift in Sources */,
 				2CA8526628D356C800B63B2F /* MovieCell.swift in Sources */,
+				2C583BF128D902B6009E9D6A /* TrendingCell.swift in Sources */,
 				2CAA265F28D2716B0036E23D /* APIKey.swift in Sources */,
 				2CADD0C128CFC64500E1493A /* GradientToolbar.swift in Sources */,
 				2CB0232028C4E8A100686BAF /* AppDelegate.swift in Sources */,
