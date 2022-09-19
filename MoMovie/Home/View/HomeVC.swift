@@ -105,6 +105,7 @@ final class HomeVC: UIViewController {
         collectionView.register(MovieCell.self, forCellWithReuseIdentifier: MovieCell.id)
         collectionView.register(StoriesPeopleCell.self, forCellWithReuseIdentifier: StoriesPeopleCell.id)
         collectionView.register(CollectionViewHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CollectionViewHeader.id)
+        collectionView.register(TrendingCell.self, forCellWithReuseIdentifier: TrendingCell.id)
     }
     
     //We want to return different layout for different sections
@@ -127,7 +128,7 @@ final class HomeVC: UIViewController {
                 return section
             case .popularMovies:
                 let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
-                let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .estimated(200), heightDimension: .estimated(300)), subitems: [item])
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .estimated(200), heightDimension: .estimated(360)), subitems: [item])
                 let section = NSCollectionLayoutSection(group: group)
                 section.orthogonalScrollingBehavior = .continuous
                 section.interGroupSpacing = 10
@@ -136,7 +137,7 @@ final class HomeVC: UIViewController {
                 return section
             case .popularTV:
                 let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
-                let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .estimated(200), heightDimension: .estimated(300)), subitems: [item])
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .estimated(200), heightDimension: .estimated(360)), subitems: [item])
                 let section = NSCollectionLayoutSection(group: group)
                 section.orthogonalScrollingBehavior = .continuous
                 section.interGroupSpacing = 10
@@ -145,12 +146,12 @@ final class HomeVC: UIViewController {
                 return section
             case .trendingToday:
                 let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
-                let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .estimated(70), heightDimension: .estimated(70)), subitems: [item])
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .estimated(160), heightDimension: .estimated(100)), subitems: [item])
 
                 let section = NSCollectionLayoutSection(group: group)
                 section.orthogonalScrollingBehavior = .continuous
                 section.interGroupSpacing = 10
-                section.contentInsets = .init(top: 4, leading: 10, bottom: 4, trailing: 10)
+                section.contentInsets = .init(top: 4, leading: 10, bottom: 50, trailing: 10)
                 section.boundarySupplementaryItems = [self!.supplementaryHeaderItem()]
                 return section
             }
@@ -186,7 +187,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCell.id, for: indexPath) as! MovieCell
             return cell
         case .trendingToday:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCell.id, for: indexPath) as! MovieCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TrendingCell.id, for: indexPath) as! TrendingCell
             return cell
         }
     }
@@ -195,6 +196,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
         switch kind {
         case UICollectionView.elementKindSectionHeader:
             let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: CollectionViewHeader.id, for: indexPath) as! CollectionViewHeader
+            header.setup(sections[indexPath.section].title)
             return header
         default:
             return UICollectionReusableView()
