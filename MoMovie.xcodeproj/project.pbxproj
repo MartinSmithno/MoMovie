@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C583BF128D902B6009E9D6A /* TrendingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C583BF028D902B6009E9D6A /* TrendingCell.swift */; };
 		2C6DEC9028C5007600142B15 /* AppLaunchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6DEC8F28C5007600142B15 /* AppLaunchVC.swift */; };
 		2C6DEC9328C50D6300142B15 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6DEC9228C50D6300142B15 /* UIColorExtensions.swift */; };
 		2C6DEC9528C5116500142B15 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6DEC9428C5116500142B15 /* Colors.swift */; };
@@ -15,6 +16,9 @@
 		2CA7B4A128C68996002DB72F /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA7B4A028C68996002DB72F /* TabBarController.swift */; };
 		2CA8526628D356C800B63B2F /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA8526528D356C800B63B2F /* MovieCell.swift */; };
 		2CAA265F28D2716B0036E23D /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAA265E28D2716B0036E23D /* APIKey.swift */; };
+		2CACAB9F28D72D0700272801 /* StoriesPeopleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CACAB9E28D72D0700272801 /* StoriesPeopleCell.swift */; };
+		2CACABA128D7421D00272801 /* CollectionViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CACABA028D7421D00272801 /* CollectionViewHeader.swift */; };
+		2CACABA328D7989400272801 /* ListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CACABA228D7989400272801 /* ListSection.swift */; };
 		2CADD0C128CFC64500E1493A /* GradientToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CADD0C028CFC64500E1493A /* GradientToolbar.swift */; };
 		2CAE2C0628C919D80067F1E3 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE2C0528C919D80067F1E3 /* ProfileVC.swift */; };
 		2CAE2C0828C91A6B0067F1E3 /* FavoritesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE2C0728C91A6B0067F1E3 /* FavoritesVC.swift */; };
@@ -29,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C583BF028D902B6009E9D6A /* TrendingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingCell.swift; sourceTree = "<group>"; };
 		2C6DEC8F28C5007600142B15 /* AppLaunchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLaunchVC.swift; sourceTree = "<group>"; };
 		2C6DEC9228C50D6300142B15 /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		2C6DEC9428C5116500142B15 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -37,6 +42,9 @@
 		2CA7B4A028C68996002DB72F /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		2CA8526528D356C800B63B2F /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		2CAA265E28D2716B0036E23D /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		2CACAB9E28D72D0700272801 /* StoriesPeopleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesPeopleCell.swift; sourceTree = "<group>"; };
+		2CACABA028D7421D00272801 /* CollectionViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewHeader.swift; sourceTree = "<group>"; };
+		2CACABA228D7989400272801 /* ListSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSection.swift; sourceTree = "<group>"; };
 		2CADD0C028CFC64500E1493A /* GradientToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientToolbar.swift; sourceTree = "<group>"; };
 		2CAE2C0528C919D80067F1E3 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		2CAE2C0728C91A6B0067F1E3 /* FavoritesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesVC.swift; sourceTree = "<group>"; };
@@ -138,6 +146,9 @@
 			isa = PBXGroup;
 			children = (
 				2CA8526528D356C800B63B2F /* MovieCell.swift */,
+				2CACAB9E28D72D0700272801 /* StoriesPeopleCell.swift */,
+				2CACABA028D7421D00272801 /* CollectionViewHeader.swift */,
+				2C583BF028D902B6009E9D6A /* TrendingCell.swift */,
 			);
 			path = CollectionCells;
 			sourceTree = "<group>";
@@ -198,6 +209,7 @@
 				2CB0232828C4E8A100686BAF /* MoMovie.xcdatamodeld */,
 				2CAA265E28D2716B0036E23D /* APIKey.swift */,
 				2CC0813F28D516A700A7FDD6 /* MockData.swift */,
+				2CACABA228D7989400272801 /* ListSection.swift */,
 			);
 			path = MoMovie;
 			sourceTree = "<group>";
@@ -272,17 +284,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CACABA128D7421D00272801 /* CollectionViewHeader.swift in Sources */,
 				2CB0232A28C4E8A100686BAF /* MoMovie.xcdatamodeld in Sources */,
 				2CB0232428C4E8A100686BAF /* HomeVC.swift in Sources */,
 				2C6DEC9028C5007600142B15 /* AppLaunchVC.swift in Sources */,
 				2CC0814028D516A700A7FDD6 /* MockData.swift in Sources */,
+				2CACAB9F28D72D0700272801 /* StoriesPeopleCell.swift in Sources */,
 				2CA7B4A128C68996002DB72F /* TabBarController.swift in Sources */,
 				2C6DEC9928C5276F00142B15 /* UINavigationBarExtensions.swift in Sources */,
 				2CAE2C0828C91A6B0067F1E3 /* FavoritesVC.swift in Sources */,
+				2CACABA328D7989400272801 /* ListSection.swift in Sources */,
 				2C6DEC9528C5116500142B15 /* Colors.swift in Sources */,
 				2C6DEC9328C50D6300142B15 /* UIColorExtensions.swift in Sources */,
 				2CC0813E28D4FEF900A7FDD6 /* ListItem.swift in Sources */,
 				2CA8526628D356C800B63B2F /* MovieCell.swift in Sources */,
+				2C583BF128D902B6009E9D6A /* TrendingCell.swift in Sources */,
 				2CAA265F28D2716B0036E23D /* APIKey.swift in Sources */,
 				2CADD0C128CFC64500E1493A /* GradientToolbar.swift in Sources */,
 				2CB0232028C4E8A100686BAF /* AppDelegate.swift in Sources */,

@@ -1,35 +1,5 @@
 import UIKit
 
-enum ListSection {
-    case popularMovies([ListItem])
-    case popularTV([ListItem])
-    case trendingToday([ListItem])
-    case trendingThisWeek([ListItem])
-    
-    var items: [ListItem] {
-        switch self {
-        case .popularMovies(let item),
-                .popularTV(let item),
-                .trendingToday(let item),
-                .trendingThisWeek(let item):
-            return item
-        }
-    }
-    
-    var title: String {
-        switch self {
-        case .popularMovies:
-            return "Popular Movies"
-        case .popularTV:
-            return "Popular TV Shows"
-        case .trendingToday:
-            return "Trending Today"
-        case .trendingThisWeek:
-            return "Trending This Week"
-        }
-    }
-}
-
 final class HomeVC: UIViewController {
     
     private var searchTextField: UITextField = {
@@ -47,7 +17,7 @@ final class HomeVC: UIViewController {
         return textField
     }()
     
-    private var trendingCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
+    var collectionView: UICollectionView!
     
     private var toolbar = GradientToolbar()
     private var tableView = UITableView()
@@ -72,7 +42,6 @@ final class HomeVC: UIViewController {
             bottom: 15,
             right: 25
         )
-        //button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         
         return button
     }()
@@ -82,14 +51,14 @@ final class HomeVC: UIViewController {
         view.backgroundColor = Colors.main
         self.title = "Home"
         print("HomePage loadded")
+        setupCollectionView()
         addViews()
         addConstraints()
-        setupCollectionView()
     }
     
     private func addViews() {
         view.addAutolayoutSubView(searchTextField)
-        view.addAutolayoutSubView(trendingCollectionView)
+        view.addAutolayoutSubView(collectionView)
         view.addAutolayoutSubView(tableView)
         view.addAutolayoutSubView(toolbar)
         toolbar.addAutolayoutSubView(searchButton)
@@ -104,12 +73,12 @@ final class HomeVC: UIViewController {
             searchTextField.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -2.0),
             searchTextField.heightAnchor.constraint(equalToConstant: 60.0),
             
-            trendingCollectionView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 2.0),
-            trendingCollectionView.topAnchor.constraint(equalTo: searchTextField.bottomAnchor, constant: 6.0),
-            trendingCollectionView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -2.0),
+            collectionView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 2.0),
+            collectionView.topAnchor.constraint(equalTo: searchTextField.bottomAnchor, constant: 6.0),
+            collectionView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -2.0),
             
             tableView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 2),
-            tableView.topAnchor.constraint(equalTo: trendingCollectionView.bottomAnchor, constant: 6.0),
+            tableView.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 6.0),
             tableView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -2),
             tableView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: -2.0),
             
@@ -129,76 +98,96 @@ final class HomeVC: UIViewController {
     }
     
     private func setupCollectionView() {
-//        let layout = UICollectionViewCompositionalLayout()
-//        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-//        layout.scrollDirection = .vertical
-//        layout.minimumInteritemSpacing = 8.0
-        
-        trendingCollectionView.delegate = self
-        trendingCollectionView.dataSource = self
-        trendingCollectionView.collectionViewLayout = createLayout()
-        trendingCollectionView.register(MovieCell.self, forCellWithReuseIdentifier: MovieCell.id)
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
+        collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(MovieCell.self, forCellWithReuseIdentifier: MovieCell.id)
+        collectionView.register(StoriesPeopleCell.self, forCellWithReuseIdentifier: StoriesPeopleCell.id)
+        collectionView.register(CollectionViewHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CollectionViewHeader.id)
+        collectionView.register(TrendingCell.self, forCellWithReuseIdentifier: TrendingCell.id)
     }
     
     //We want to return different layout for different sections
     private func createLayout() -> UICollectionViewCompositionalLayout {
-        UICollectionViewCompositionalLayout(sectionProvider: { [weak self] sectionIndex, layoutEnvironment in
-            guard let self = self else { return }
-            let section = self.sections[sectionIndex]
-            switch section {
-            case .popularMovies:
-                return
+        UICollectionViewCompositionalLayout { [weak self] sectionIndex, layoutEnvironment in
+            let rolle = self!.sections[sectionIndex]
+            switch rolle {
+            case .storiesPeople:
                 //item that fills container
                 let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
-                
                 //group
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .estimated(70), heightDimension: .estimated(70)), subitems: [item])
-                
                 //section
                 let section = NSCollectionLayoutSection(group: group)
                 section.orthogonalScrollingBehavior = .continuous
                 section.interGroupSpacing = 10
+                section.boundarySupplementaryItems = [self!.supplementaryHeaderItem()]
                 section.contentInsets = .init(top: 4, leading: 10, bottom: 4, trailing: 10)
-                
                 //return
                 return section
+            case .popularMovies:
+                let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .estimated(200), heightDimension: .estimated(360)), subitems: [item])
+                let section = NSCollectionLayoutSection(group: group)
+                section.orthogonalScrollingBehavior = .continuous
+                section.interGroupSpacing = 10
+                section.contentInsets = .init(top: 4, leading: 10, bottom: 4, trailing: 10)
+                section.boundarySupplementaryItems = [self!.supplementaryHeaderItem()]
+                return section
             case .popularTV:
-                return
+                let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .estimated(200), heightDimension: .estimated(360)), subitems: [item])
+                let section = NSCollectionLayoutSection(group: group)
+                section.orthogonalScrollingBehavior = .continuous
+                section.interGroupSpacing = 10
+                section.contentInsets = .init(top: 4, leading: 10, bottom: 4, trailing: 10)
+                section.boundarySupplementaryItems = [self!.supplementaryHeaderItem()]
+                return section
             case .trendingToday:
-                return
-            case .trendingThisWeek:
-                return
+                let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .estimated(160), heightDimension: .estimated(100)), subitems: [item])
+
+                let section = NSCollectionLayoutSection(group: group)
+                section.orthogonalScrollingBehavior = .continuous
+                section.interGroupSpacing = 10
+                section.contentInsets = .init(top: 4, leading: 10, bottom: 50, trailing: 10)
+                section.boundarySupplementaryItems = [self!.supplementaryHeaderItem()]
+                return section
             }
         }
     }
     
+    private func supplementaryHeaderItem() -> NSCollectionLayoutBoundarySupplementaryItem {
+        let headerLayout = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(50))
+        let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerLayout, elementKind: UICollectionView.elementKindSectionHeader, alignment: .topLeading)
+        return header
+    }
 }
 
-extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
+extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return sections.count
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //return sections[section].count
-        return 1
+        return sections[section].count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         switch sections[indexPath.section] {
-        case .popularMovies(let item):
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCell.id, for: indexPath)
+        case .storiesPeople:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StoriesPeopleCell.id, for: indexPath) as! StoriesPeopleCell
             return cell
-        case .popularTV(let item):
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCell.id, for: indexPath)
+        case .popularMovies:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCell.id, for: indexPath) as! MovieCell
             return cell
-        case .trendingToday(let item):
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCell.id, for: indexPath)
+        case .popularTV:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCell.id, for: indexPath) as! MovieCell
             return cell
-        case .trendingThisWeek(let item):
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCell.id, for: indexPath)
+        case .trendingToday:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TrendingCell.id, for: indexPath) as! TrendingCell
             return cell
         }
     }
@@ -206,10 +195,9 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
         case UICollectionView.elementKindSectionHeader:
-            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "identifier", for: indexPath)
-            headerView.backgroundColor = .red
-            // Configure header view .....
-            return headerView
+            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: CollectionViewHeader.id, for: indexPath) as! CollectionViewHeader
+            header.setup(sections[indexPath.section].title)
+            return header
         default:
             return UICollectionReusableView()
         }

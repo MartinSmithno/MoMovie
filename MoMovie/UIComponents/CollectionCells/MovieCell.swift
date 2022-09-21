@@ -1,18 +1,19 @@
 import UIKit
 
+enum Shapes {
+    static let spacing = 2.0
+    static let verticalMargin = 4.0
+    static let cellCornerRadius = 8.0
+    static let cellBorderWidth = 1.0
+    static let ratingFontSize = 20.0
+    static let bigFontSize = 18.0
+    static let regularFontSize = 16.0
+    static let smallFontSize = 8.0
+    static let imageCornerRadius = 6.0
+}
+
 final class MovieCell: UICollectionViewCell {
-    
-    private enum Shapes {
-        static let spacing = 2.0
-        static let verticalMargin = 4.0
-        static let cellCornerRadius = 8.0
-        static let cellBorderWidth = 1.0
-        static let ratingFontSize = 20.0
-        static let bigFontSize = 18.0
-        static let regularFontSize = 16.0
-        static let smallFontSize = 8.0
-    }
-    
+
     static let id = "MovieCell"
     
     private var previewStackView: UIStackView = {
@@ -32,6 +33,7 @@ final class MovieCell: UICollectionViewCell {
             return imageView
         }
         imageView.image = image
+        imageView.layer.cornerRadius = Shapes.imageCornerRadius
         
         return imageView
     }()
@@ -40,6 +42,7 @@ final class MovieCell: UICollectionViewCell {
         let rating = UILabel()
         rating.font = UIFont.boldSystemFont(ofSize: Shapes.ratingFontSize)
         rating.text = "74%"
+        rating.textColor = .white
         rating.textAlignment = .center
         rating.layer.borderWidth = Shapes.cellBorderWidth
         rating.backgroundColor = .orange
@@ -105,6 +108,7 @@ final class MovieCell: UICollectionViewCell {
             poster.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             
             rating.centerYAnchor.constraint(equalTo: poster.bottomAnchor),
+            rating.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 4),
             rating.heightAnchor.constraint(equalToConstant: 50),
             rating.heightAnchor.constraint(equalTo: rating.widthAnchor),
             
