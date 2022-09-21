@@ -46,6 +46,16 @@ final class HomeVC: UIViewController {
         return button
     }()
     
+    private var segmentedControl: UISegmentedControl = {
+        let segmentedControl = UISegmentedControl(items: ["Today", "This Week"])
+        segmentedControl.selectedSegmentIndex = 0
+        segmentedControl.tintColor = UIColor.green
+        segmentedControl.backgroundColor = UIColor.systemOrange
+        //segmentedControl.addTarget(self, action: #selector(self.segmentedValueChanged(_:)), for: .valueChanged)
+        
+        return segmentedControl
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = Colors.main
@@ -95,6 +105,11 @@ final class HomeVC: UIViewController {
     @objc
     func buttonAction() {
         print("Button pressed")
+    }
+    
+    @objc func segmentedValueChanged(_ sender:UISegmentedControl!)
+    {
+        print("Selected Segment Index is : \(sender.selectedSegmentIndex)")
     }
     
     private func setupCollectionView() {
@@ -147,7 +162,7 @@ final class HomeVC: UIViewController {
             case .trendingToday:
                 let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .estimated(160), heightDimension: .estimated(100)), subitems: [item])
-
+                
                 let section = NSCollectionLayoutSection(group: group)
                 section.orthogonalScrollingBehavior = .continuous
                 section.interGroupSpacing = 10
