@@ -74,7 +74,6 @@ final class TrendingCell: UICollectionViewCell {
             title.topAnchor.constraint(equalTo: previewStackView.topAnchor),
             title.trailingAnchor.constraint(equalTo: previewStackView.trailingAnchor, constant: -Shapes.verticalMargin),
             title.bottomAnchor.constraint(equalTo: previewStackView.bottomAnchor)
-
         ])
         
     }
