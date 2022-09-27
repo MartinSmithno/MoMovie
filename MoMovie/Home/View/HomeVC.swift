@@ -20,7 +20,6 @@ final class HomeVC: UIViewController {
     var collectionView: UICollectionView!
     
     private var toolbar = GradientToolbar()
-    private var tableView = UITableView()
     private let sections = MockData.shared.pageData
     
     private var searchButton: UIButton = {
@@ -46,16 +45,6 @@ final class HomeVC: UIViewController {
         return button
     }()
     
-    private var segmentedControl: UISegmentedControl = {
-        let segmentedControl = UISegmentedControl(items: ["Today", "This Week"])
-        segmentedControl.selectedSegmentIndex = 0
-        segmentedControl.tintColor = UIColor.green
-        segmentedControl.backgroundColor = UIColor.systemOrange
-        //segmentedControl.addTarget(self, action: #selector(self.segmentedValueChanged(_:)), for: .valueChanged)
-        
-        return segmentedControl
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = Colors.main
@@ -69,7 +58,6 @@ final class HomeVC: UIViewController {
     private func addViews() {
         view.addAutolayoutSubView(searchTextField)
         view.addAutolayoutSubView(collectionView)
-        view.addAutolayoutSubView(tableView)
         view.addAutolayoutSubView(toolbar)
         toolbar.addAutolayoutSubView(searchButton)
     }
@@ -87,11 +75,6 @@ final class HomeVC: UIViewController {
             collectionView.topAnchor.constraint(equalTo: searchTextField.bottomAnchor, constant: 6.0),
             collectionView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -2.0),
             
-            tableView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 2),
-            tableView.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 6.0),
-            tableView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -2),
-            tableView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: -2.0),
-            
             toolbar.heightAnchor.constraint(equalToConstant: 60),
             toolbar.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
             toolbar.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -2),
@@ -106,12 +89,7 @@ final class HomeVC: UIViewController {
     func buttonAction() {
         print("Button pressed")
     }
-    
-    @objc func segmentedValueChanged(_ sender:UISegmentedControl!)
-    {
-        print("Selected Segment Index is : \(sender.selectedSegmentIndex)")
-    }
-    
+        
     private func setupCollectionView() {
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -120,6 +98,7 @@ final class HomeVC: UIViewController {
         collectionView.register(MovieCell.self, forCellWithReuseIdentifier: MovieCell.id)
         collectionView.register(StoriesPeopleCell.self, forCellWithReuseIdentifier: StoriesPeopleCell.id)
         collectionView.register(CollectionViewHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CollectionViewHeader.id)
+        collectionView.register(SegmentedFooter.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: SegmentedFooter.id)
         collectionView.register(TrendingCell.self, forCellWithReuseIdentifier: TrendingCell.id)
     }
     
@@ -166,8 +145,8 @@ final class HomeVC: UIViewController {
                 let section = NSCollectionLayoutSection(group: group)
                 section.orthogonalScrollingBehavior = .continuous
                 section.interGroupSpacing = 10
-                section.contentInsets = .init(top: 4, leading: 10, bottom: 50, trailing: 10)
-                section.boundarySupplementaryItems = [self!.supplementaryHeaderItem()]
+                section.contentInsets = .init(top: 4, leading: 10, bottom: 75, trailing: 10)
+                section.boundarySupplementaryItems = [self!.supplementaryHeaderItem(), self!.supplementaryFooterItem()]
                 return section
             }
         }
@@ -177,6 +156,12 @@ final class HomeVC: UIViewController {
         let headerLayout = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(50))
         let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerLayout, elementKind: UICollectionView.elementKindSectionHeader, alignment: .topLeading)
         return header
+    }
+    
+    private func supplementaryFooterItem() -> NSCollectionLayoutBoundarySupplementaryItem {
+        let footerLayout = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(25))
+        let footer = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: footerLayout, elementKind: UICollectionView.elementKindSectionFooter, alignment: .leading)
+        return footer
     }
 }
 
@@ -213,6 +198,9 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
             let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: CollectionViewHeader.id, for: indexPath) as! CollectionViewHeader
             header.setup(sections[indexPath.section].title)
             return header
+        case UICollectionView.elementKindSectionFooter:
+            let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SegmentedFooter.id, for: indexPath) as! SegmentedFooter
+            return footer
         default:
             return UICollectionReusableView()
         }
