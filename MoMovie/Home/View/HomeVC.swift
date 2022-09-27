@@ -74,10 +74,11 @@ final class HomeVC: UIViewController {
             collectionView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 2.0),
             collectionView.topAnchor.constraint(equalTo: searchTextField.bottomAnchor, constant: 6.0),
             collectionView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -2.0),
+            collectionView.bottomAnchor.constraint(equalTo: toolbar.topAnchor, constant: -6.0),
             
             toolbar.heightAnchor.constraint(equalToConstant: 60),
             toolbar.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
-            toolbar.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -2),
+            toolbar.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
             toolbar.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: -2),
             
             searchButton.centerXAnchor.constraint(equalTo: toolbar.centerXAnchor),
@@ -145,7 +146,7 @@ final class HomeVC: UIViewController {
                 let section = NSCollectionLayoutSection(group: group)
                 section.orthogonalScrollingBehavior = .continuous
                 section.interGroupSpacing = 10
-                section.contentInsets = .init(top: 4, leading: 10, bottom: 75, trailing: 10)
+                section.contentInsets = .init(top: 4, leading: 10, bottom: 4, trailing: 10)
                 section.boundarySupplementaryItems = [self!.supplementaryHeaderItem(), self!.supplementaryFooterItem()]
                 return section
             }
