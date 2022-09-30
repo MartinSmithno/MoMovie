@@ -161,7 +161,7 @@ final class HomeVC: UIViewController {
     
     private func supplementaryFooterItem() -> NSCollectionLayoutBoundarySupplementaryItem {
         let footerLayout = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(25))
-        let footer = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: footerLayout, elementKind: UICollectionView.elementKindSectionFooter, alignment: .leading)
+        let footer = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: footerLayout, elementKind: UICollectionView.elementKindSectionFooter, alignment: .bottom)
         return footer
     }
 }
