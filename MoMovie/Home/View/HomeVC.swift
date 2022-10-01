@@ -13,6 +13,7 @@ final class HomeVC: UIViewController {
         textField.returnKeyType = UIReturnKeyType.search
         textField.clearButtonMode = UITextField.ViewMode.whileEditing
         textField.contentVerticalAlignment = UIControl.ContentVerticalAlignment.center
+        textField.returnKeyType = .search
         
         return textField
     }()
@@ -50,6 +51,7 @@ final class HomeVC: UIViewController {
         view.backgroundColor = Colors.main
         self.title = "Home"
         print("HomePage loadded")
+        searchTextField.delegate = self
         setupCollectionView()
         addViews()
         addConstraints()
@@ -206,4 +208,29 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
             return UICollectionReusableView()
         }
     }
+}
+
+extension HomeVC: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        guard let text = searchTextField.text else { return false }
+        searchTextField.endEditing(true)
+        print(text)
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        //We should think we can send request here.
+        searchTextField.text = ""
+    }
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        if textField.text != "" {
+            return true
+        } else {
+            textField.placeholder = "What do you want to watch today?"
+            return false
+        }
+    }
+    
 }
