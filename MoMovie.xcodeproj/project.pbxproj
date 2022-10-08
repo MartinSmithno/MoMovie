@@ -13,6 +13,9 @@
 		2C6DEC9528C5116500142B15 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6DEC9428C5116500142B15 /* Colors.swift */; };
 		2C6DEC9728C5158C00142B15 /* LayoutExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6DEC9628C5158C00142B15 /* LayoutExtensions.swift */; };
 		2C6DEC9928C5276F00142B15 /* UINavigationBarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6DEC9828C5276F00142B15 /* UINavigationBarExtensions.swift */; };
+		2C7297A428F1870900242A18 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C7297A328F1870900242A18 /* GoogleService-Info.plist */; };
+		2C7297A728F1DBF200242A18 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 2C7297A628F1DBF200242A18 /* FirebaseAuth */; };
+		2C7297A928F1DBF200242A18 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 2C7297A828F1DBF200242A18 /* FirebaseFirestore */; };
 		2CA7B4A128C68996002DB72F /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA7B4A028C68996002DB72F /* TabBarController.swift */; };
 		2CA8526628D356C800B63B2F /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA8526528D356C800B63B2F /* MovieCell.swift */; };
 		2CAA265F28D2716B0036E23D /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAA265E28D2716B0036E23D /* APIKey.swift */; };
@@ -28,6 +31,7 @@
 		2CB0232A28C4E8A100686BAF /* MoMovie.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2CB0232828C4E8A100686BAF /* MoMovie.xcdatamodeld */; };
 		2CB0232C28C4E8A800686BAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CB0232B28C4E8A800686BAF /* Assets.xcassets */; };
 		2CB0232F28C4E8A800686BAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CB0232D28C4E8A800686BAF /* LaunchScreen.storyboard */; };
+		2CB1DF5D28E38CF5000B1414 /* SegmentedFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB1DF5C28E38CF5000B1414 /* SegmentedFooter.swift */; };
 		2CC0813E28D4FEF900A7FDD6 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC0813D28D4FEF900A7FDD6 /* ListItem.swift */; };
 		2CC0814028D516A700A7FDD6 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC0813F28D516A700A7FDD6 /* MockData.swift */; };
 /* End PBXBuildFile section */
@@ -39,6 +43,7 @@
 		2C6DEC9428C5116500142B15 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		2C6DEC9628C5158C00142B15 /* LayoutExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutExtensions.swift; sourceTree = "<group>"; };
 		2C6DEC9828C5276F00142B15 /* UINavigationBarExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationBarExtensions.swift; sourceTree = "<group>"; };
+		2C7297A328F1870900242A18 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2CA7B4A028C68996002DB72F /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		2CA8526528D356C800B63B2F /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		2CAA265E28D2716B0036E23D /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
@@ -56,6 +61,7 @@
 		2CB0232B28C4E8A800686BAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2CB0232E28C4E8A800686BAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2CB0233028C4E8A800686BAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2CB1DF5C28E38CF5000B1414 /* SegmentedFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedFooter.swift; sourceTree = "<group>"; };
 		2CC0813D28D4FEF900A7FDD6 /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
 		2CC0813F28D516A700A7FDD6 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -65,6 +71,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C7297A728F1DBF200242A18 /* FirebaseAuth in Frameworks */,
+				2C7297A928F1DBF200242A18 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,6 +157,7 @@
 				2CACAB9E28D72D0700272801 /* StoriesPeopleCell.swift */,
 				2CACABA028D7421D00272801 /* CollectionViewHeader.swift */,
 				2C583BF028D902B6009E9D6A /* TrendingCell.swift */,
+				2CB1DF5C28E38CF5000B1414 /* SegmentedFooter.swift */,
 			);
 			path = CollectionCells;
 			sourceTree = "<group>";
@@ -206,6 +215,7 @@
 				2CA8526328D3569300B63B2F /* UIComponents */,
 				2CB0232B28C4E8A800686BAF /* Assets.xcassets */,
 				2CB0233028C4E8A800686BAF /* Info.plist */,
+				2C7297A328F1870900242A18 /* GoogleService-Info.plist */,
 				2CB0232828C4E8A100686BAF /* MoMovie.xcdatamodeld */,
 				2CAA265E28D2716B0036E23D /* APIKey.swift */,
 				2CC0813F28D516A700A7FDD6 /* MockData.swift */,
@@ -230,6 +240,10 @@
 			dependencies = (
 			);
 			name = MoMovie;
+			packageProductDependencies = (
+				2C7297A628F1DBF200242A18 /* FirebaseAuth */,
+				2C7297A828F1DBF200242A18 /* FirebaseFirestore */,
+			);
 			productName = MoMovie;
 			productReference = 2CB0231C28C4E8A100686BAF /* MoMovie.app */;
 			productType = "com.apple.product-type.application";
@@ -258,6 +272,9 @@
 				Base,
 			);
 			mainGroup = 2CB0231328C4E8A100686BAF;
+			packageReferences = (
+				2C7297A528F1DBF100242A18 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 2CB0231D28C4E8A100686BAF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -274,6 +291,7 @@
 			files = (
 				2CB0232F28C4E8A800686BAF /* LaunchScreen.storyboard in Resources */,
 				2CB0232C28C4E8A800686BAF /* Assets.xcassets in Resources */,
+				2C7297A428F1870900242A18 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,6 +313,7 @@
 				2CAE2C0828C91A6B0067F1E3 /* FavoritesVC.swift in Sources */,
 				2CACABA328D7989400272801 /* ListSection.swift in Sources */,
 				2C6DEC9528C5116500142B15 /* Colors.swift in Sources */,
+				2CB1DF5D28E38CF5000B1414 /* SegmentedFooter.swift in Sources */,
 				2C6DEC9328C50D6300142B15 /* UIColorExtensions.swift in Sources */,
 				2CC0813E28D4FEF900A7FDD6 /* ListItem.swift in Sources */,
 				2CA8526628D356C800B63B2F /* MovieCell.swift in Sources */,
@@ -514,6 +533,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2C7297A528F1DBF100242A18 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2C7297A628F1DBF200242A18 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2C7297A528F1DBF100242A18 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		2C7297A828F1DBF200242A18 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2C7297A528F1DBF100242A18 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		2CB0232828C4E8A100686BAF /* MoMovie.xcdatamodeld */ = {

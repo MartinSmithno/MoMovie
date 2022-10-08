@@ -19,10 +19,10 @@ final class CollectionViewHeader: UICollectionReusableView {
     override func layoutSubviews() {
         super.layoutSubviews()
         header.frame = bounds
+        addSubview(header)
     }
     
     func setup(_ title: String) {
         header.text = title
-        addSubview(header)
     }
 }
