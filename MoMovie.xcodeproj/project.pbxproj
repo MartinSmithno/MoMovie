@@ -14,6 +14,8 @@
 		2C6DEC9728C5158C00142B15 /* LayoutExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6DEC9628C5158C00142B15 /* LayoutExtensions.swift */; };
 		2C6DEC9928C5276F00142B15 /* UINavigationBarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6DEC9828C5276F00142B15 /* UINavigationBarExtensions.swift */; };
 		2C7297A428F1870900242A18 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C7297A328F1870900242A18 /* GoogleService-Info.plist */; };
+		2C7297A728F1DBF200242A18 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 2C7297A628F1DBF200242A18 /* FirebaseAuth */; };
+		2C7297A928F1DBF200242A18 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 2C7297A828F1DBF200242A18 /* FirebaseFirestore */; };
 		2CA7B4A128C68996002DB72F /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA7B4A028C68996002DB72F /* TabBarController.swift */; };
 		2CA8526628D356C800B63B2F /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA8526528D356C800B63B2F /* MovieCell.swift */; };
 		2CAA265F28D2716B0036E23D /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAA265E28D2716B0036E23D /* APIKey.swift */; };
@@ -69,6 +71,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C7297A728F1DBF200242A18 /* FirebaseAuth in Frameworks */,
+				2C7297A928F1DBF200242A18 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +240,10 @@
 			dependencies = (
 			);
 			name = MoMovie;
+			packageProductDependencies = (
+				2C7297A628F1DBF200242A18 /* FirebaseAuth */,
+				2C7297A828F1DBF200242A18 /* FirebaseFirestore */,
+			);
 			productName = MoMovie;
 			productReference = 2CB0231C28C4E8A100686BAF /* MoMovie.app */;
 			productType = "com.apple.product-type.application";
@@ -264,6 +272,9 @@
 				Base,
 			);
 			mainGroup = 2CB0231328C4E8A100686BAF;
+			packageReferences = (
+				2C7297A528F1DBF100242A18 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 2CB0231D28C4E8A100686BAF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -522,6 +533,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2C7297A528F1DBF100242A18 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2C7297A628F1DBF200242A18 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2C7297A528F1DBF100242A18 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		2C7297A828F1DBF200242A18 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2C7297A528F1DBF100242A18 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		2CB0232828C4E8A100686BAF /* MoMovie.xcdatamodeld */ = {
