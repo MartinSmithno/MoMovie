@@ -13,7 +13,6 @@ final class HomeVC: UIViewController {
         textField.returnKeyType = UIReturnKeyType.search
         textField.clearButtonMode = UITextField.ViewMode.whileEditing
         textField.contentVerticalAlignment = UIControl.ContentVerticalAlignment.center
-        textField.returnKeyType = .search
         
         return textField
     }()

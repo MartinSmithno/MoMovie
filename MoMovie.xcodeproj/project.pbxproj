@@ -19,6 +19,7 @@
 		2CA7B4A128C68996002DB72F /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA7B4A028C68996002DB72F /* TabBarController.swift */; };
 		2CA8526628D356C800B63B2F /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA8526528D356C800B63B2F /* MovieCell.swift */; };
 		2CAA265F28D2716B0036E23D /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAA265E28D2716B0036E23D /* APIKey.swift */; };
+		2CAA2F5B28F360E000583B41 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAA2F5A28F360E000583B41 /* LoginVC.swift */; };
 		2CACAB9F28D72D0700272801 /* StoriesPeopleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CACAB9E28D72D0700272801 /* StoriesPeopleCell.swift */; };
 		2CACABA128D7421D00272801 /* CollectionViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CACABA028D7421D00272801 /* CollectionViewHeader.swift */; };
 		2CACABA328D7989400272801 /* ListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CACABA228D7989400272801 /* ListSection.swift */; };
@@ -47,6 +48,7 @@
 		2CA7B4A028C68996002DB72F /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		2CA8526528D356C800B63B2F /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		2CAA265E28D2716B0036E23D /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		2CAA2F5A28F360E000583B41 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		2CACAB9E28D72D0700272801 /* StoriesPeopleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesPeopleCell.swift; sourceTree = "<group>"; };
 		2CACABA028D7421D00272801 /* CollectionViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewHeader.swift; sourceTree = "<group>"; };
 		2CACABA228D7989400272801 /* ListSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSection.swift; sourceTree = "<group>"; };
@@ -162,6 +164,14 @@
 			path = CollectionCells;
 			sourceTree = "<group>";
 		};
+		2CAA2F5928F35E9400583B41 /* Log In */ = {
+			isa = PBXGroup;
+			children = (
+				2CAA2F5A28F360E000583B41 /* LoginVC.swift */,
+			);
+			path = "Log In";
+			sourceTree = "<group>";
+		};
 		2CADD0BF28CFC60200E1493A /* Toolbar */ = {
 			isa = PBXGroup;
 			children = (
@@ -210,6 +220,7 @@
 				2C6DEC8E28C5004100142B15 /* Launch */,
 				2C6DEC8D28C5000100142B15 /* Home */,
 				2CAE2C0328C919690067F1E3 /* Like */,
+				2CAA2F5928F35E9400583B41 /* Log In */,
 				2CAE2C0428C919730067F1E3 /* Profile */,
 				2C6DEC9128C50D3C00142B15 /* Extensions */,
 				2CA8526328D3569300B63B2F /* UIComponents */,
@@ -324,6 +335,7 @@
 				2CB0232228C4E8A100686BAF /* SceneDelegate.swift in Sources */,
 				2CAE2C0628C919D80067F1E3 /* ProfileVC.swift in Sources */,
 				2C6DEC9728C5158C00142B15 /* LayoutExtensions.swift in Sources */,
+				2CAA2F5B28F360E000583B41 /* LoginVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
