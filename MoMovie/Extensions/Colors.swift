@@ -11,5 +11,6 @@ struct Colors {
     static let lightBlue = UIColor(named: "light_blue")!
     static let darkBlue = UIColor(named: "dark_blue")!
     static let grey = UIColor(named: "grey")!
-    
+    static let green = UIColor(named: "green")!
+    static let darkGreen = UIColor(named: "dark_green")!
 }

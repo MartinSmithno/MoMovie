@@ -43,11 +43,59 @@ final class LoginVC: UIViewController {
         return line
     }()
     
+    private var logInButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.layer.cornerRadius = 24
+        button.layer.masksToBounds = false
+        button.layer.borderColor = UIColor.systemGray3.cgColor
+        button.layer.borderWidth = 1
+        button.setTitle("Log in", for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        button.titleLabel?.textAlignment = .center
+        button.titleLabel?.adjustsFontSizeToFitWidth = false
+        button.backgroundColor = Colors.lightOrange
+        button.tintColor = Colors.grey
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.contentEdgeInsets = UIEdgeInsets(
+            top: 15,
+            left: 25,
+            bottom: 15,
+            right: 25
+        )
+        
+        return button
+    }()
+    
+    private var registerButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.layer.cornerRadius = 24
+        button.layer.masksToBounds = false
+        button.layer.borderColor = UIColor.systemGray3.cgColor
+        button.layer.borderWidth = 1
+        button.setTitle("Create New Account", for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        button.titleLabel?.textAlignment = .center
+        button.titleLabel?.adjustsFontSizeToFitWidth = false
+        button.backgroundColor = Colors.green
+        button.tintColor = Colors.darkGreen
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.contentEdgeInsets = UIEdgeInsets(
+            top: 15,
+            left: 25,
+            bottom: 15,
+            right: 25
+        )
+        
+        return button
+    }()
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = Colors.main
+        addViews()
+        addConstraints()
         
     }
     
