@@ -2,7 +2,7 @@ import UIKit
 
 final class LoginVC: UIViewController {
     
-    private let addressTextField: UITextField = {
+    private let userNameTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Email address or phone number"
         textField.font = UIFont.systemFont(ofSize: 20)
@@ -89,7 +89,14 @@ final class LoginVC: UIViewController {
         return button
     }()
     
-    
+    private var stackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.distribution = .equalSpacing
+        stackView.spacing = 4
+        stackView.alignment = .fill
+        return stackView
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -100,13 +107,20 @@ final class LoginVC: UIViewController {
     }
     
     private func addViews() {
-        
+        view.addAutolayoutSubView(stackView)
+        stackView.addAutolayoutSubView(userNameTextField)
+        stackView.addAutolayoutSubView(passwordTextField)
+        stackView.addAutolayoutSubView(logInButton)
+        stackView.addAutolayoutSubView(lineBetweenButtons)
+        stackView.addAutolayoutSubView(registerButton)
     }
     
     private func addConstraints() {
         let safeArea = view.safeAreaLayoutGuide
         
         NSLayoutConstraint.activate([
+            stackView.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor),
+            stackView.centerYAnchor.constraint(equalTo: safeArea.centerYAnchor)
         ])
     }
 }
