@@ -26,6 +26,7 @@
 		2CADD0C128CFC64500E1493A /* GradientToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CADD0C028CFC64500E1493A /* GradientToolbar.swift */; };
 		2CAE2C0628C919D80067F1E3 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE2C0528C919D80067F1E3 /* ProfileVC.swift */; };
 		2CAE2C0828C91A6B0067F1E3 /* FavoritesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE2C0728C91A6B0067F1E3 /* FavoritesVC.swift */; };
+		2CAEB33228F4A91D0071BE1A /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAEB33128F4A91D0071BE1A /* SignUpVC.swift */; };
 		2CB0232028C4E8A100686BAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB0231F28C4E8A100686BAF /* AppDelegate.swift */; };
 		2CB0232228C4E8A100686BAF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB0232128C4E8A100686BAF /* SceneDelegate.swift */; };
 		2CB0232428C4E8A100686BAF /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB0232328C4E8A100686BAF /* HomeVC.swift */; };
@@ -55,6 +56,7 @@
 		2CADD0C028CFC64500E1493A /* GradientToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientToolbar.swift; sourceTree = "<group>"; };
 		2CAE2C0528C919D80067F1E3 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		2CAE2C0728C91A6B0067F1E3 /* FavoritesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesVC.swift; sourceTree = "<group>"; };
+		2CAEB33128F4A91D0071BE1A /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		2CB0231C28C4E8A100686BAF /* MoMovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoMovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CB0231F28C4E8A100686BAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CB0232128C4E8A100686BAF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -196,6 +198,14 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		2CAEB33028F4A8D90071BE1A /* Sign up */ = {
+			isa = PBXGroup;
+			children = (
+				2CAEB33128F4A91D0071BE1A /* SignUpVC.swift */,
+			);
+			path = "Sign up";
+			sourceTree = "<group>";
+		};
 		2CB0231328C4E8A100686BAF = {
 			isa = PBXGroup;
 			children = (
@@ -221,6 +231,7 @@
 				2C6DEC8D28C5000100142B15 /* Home */,
 				2CAE2C0328C919690067F1E3 /* Like */,
 				2CAA2F5928F35E9400583B41 /* Log In */,
+				2CAEB33028F4A8D90071BE1A /* Sign up */,
 				2CAE2C0428C919730067F1E3 /* Profile */,
 				2C6DEC9128C50D3C00142B15 /* Extensions */,
 				2CA8526328D3569300B63B2F /* UIComponents */,
@@ -329,6 +340,7 @@
 				2CC0813E28D4FEF900A7FDD6 /* ListItem.swift in Sources */,
 				2CA8526628D356C800B63B2F /* MovieCell.swift in Sources */,
 				2C583BF128D902B6009E9D6A /* TrendingCell.swift in Sources */,
+				2CAEB33228F4A91D0071BE1A /* SignUpVC.swift in Sources */,
 				2CAA265F28D2716B0036E23D /* APIKey.swift in Sources */,
 				2CADD0C128CFC64500E1493A /* GradientToolbar.swift in Sources */,
 				2CB0232028C4E8A100686BAF /* AppDelegate.swift in Sources */,
